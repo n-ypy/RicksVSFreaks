@@ -1,6 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit"
+import fightReducer from "./features/fight/fightSlice"
 
 
 export default configureStore({
-    reducer: {},
+    reducer: {
+        fight: fightReducer
+    },
 })
