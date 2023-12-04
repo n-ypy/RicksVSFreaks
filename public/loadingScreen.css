@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'Get Schwifty';
+    src: url('get-schwifty.woff') format('woff');
+}
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.loading-screen-container {
+    z-index: 999;
+    overflow: hidden;
+    height: 100svh;
+    width: 100svw;
+    position: absolute;
+    background-color: black;
+}
+
+.loading-screen-title {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    text-align: center;
+    font-family: 'Get Schwifty';
+    font-size: 120px;
+    color: #08BAE3;
+    z-index: 50;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+    animation: title-scale 1s linear;
+}
+
+.loading-screen-title span {
+    font-size: 0.5em;
+}
+
+.loading-screen-title.loading-screen-middle {
+    -webkit-text-stroke: 0.1em #FFF765;
+    z-index: 49;
+}
+
+.loading-screen-title.loading-screen-bottom {
+    -webkit-text-stroke: 0.4em black;
+    z-index: 48;
+}
+
+.loading-screen-portal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-color: #66BA4F;
+    box-shadow: 0px 0px 40px 10px #448C3F;
+    height: 80svh;
+    width: 80svh;
+    border-radius: 335.383px 406px 323.168px 384.988px;
+    animation: rotating 15s linear infinite;
+    background:
+        radial-gradient(circle at 77% 80%, #FDFEB4 2.5%, transparent 2.5%),
+        radial-gradient(circle at 75% 83%, #FDFEB4 2%, transparent 2%),
+        radial-gradient(circle at 79% 83%, #FDFEB4 1%, transparent 1%),
+        radial-gradient(circle at 45% 13%, #FFFFD5 1.5%, transparent 1.5%),
+        radial-gradient(circle at 42% 13%, #FFFFD5 2%, transparent 2%),
+        radial-gradient(circle at 38% 14%, #FFFFD5 1.5%, transparent 1.5%),
+        radial-gradient(circle at 20% 24%, #FDFEB4 1%, transparent 1%),
+        radial-gradient(circle at 21% 23%, #FDFEB4 1%, transparent 1%),
+        radial-gradient(circle at 51% 13%, #FDFEB4 1%, transparent 1%),
+        radial-gradient(circle at 81% 33%, #FDFEB4 1%, transparent 1%),
+        radial-gradient(circle at 85% 36%, #FDFEB4 2%, transparent 2%),
+        radial-gradient(circle at 21% 46%, #FDFEB4 1%, transparent 1%),
+        radial-gradient(circle at 20% 51%, #FDFEB4 2%, transparent 2%),
+        radial-gradient(circle at 53% 51%, transparent 64%, #43A93E 64%),
+        radial-gradient(circle at 47% 59%, transparent 64%, #43843E 64%),
+        radial-gradient(circle at 47% 60%, transparent 59%, #1A9042 59%),
+        radial-gradient(circle at 50% 59%, transparent 55%, #1B863C 55%),
+        radial-gradient(circle at 45% 60%, transparent 55%, #399C49 55%),
+        radial-gradient(circle at 47% 60%, transparent 46%, #1A9042 46%),
+        radial-gradient(circle at 46% 55%, transparent 43%, #75B03B 43%),
+        radial-gradient(circle at 36% 55%, transparent 43%, #A9CB48 43%),
+        radial-gradient(circle at 50% 60%, transparent 40%, #66BA4F 40%),
+        radial-gradient(circle at 50% 53%, transparent 40%, #E5E051 37%),
+        radial-gradient(circle at 30% 48%, transparent 40%, #EAF157 37%),
+        radial-gradient(circle at 57% 69%, transparent 40%, #EAF157 40%),
+        radial-gradient(circle at 40% 88%, transparent 40%, #E9E072 37%),
+        radial-gradient(circle at 67% 54%, transparent 40%, #FAEB7B 37%),
+        radial-gradient(circle at 49% 35%, transparent 40%, #FFF8C5 37%),
+        radial-gradient(circle at 79% 59%, transparent 40%, #FFFE9C 37%),
+        radial-gradient(circle at 50% 50%, #FDFEB4 100%, #FDFEB4 100%);
+}
+
+@media screen and (max-width: 680px) {
+    .loading-screen-title {
+        font-size: 80px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .loading-screen-title {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .loading-screen-title {
+        font-size: 50px;
+    }
+}
+
+
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    -webkit-animation: rotating 15s linear infinite;
+    -moz-animation: rotating 15s linear infinite;
+    -ms-animation: rotating 15s linear infinite;
+    -o-animation: rotating 15s linear infinite;
+    animation: rotating 15s linear infinite;
+}
+
+@keyframes title-scale {
+    0% {
+        transform: scale(0.3);
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
