@@ -1,15 +1,15 @@
 import './Game.css';
-import Monster from './Components/Monster';
-import PlayerList from './Components/PlayerList';
+import Enemy from './Components/Enemy';
+import HeroList from './Components/HeroList';
 
 export default function Game() {
 
     return (
         <div className="App">
-            <Monster />
+            <Enemy />
             <br></br>
             <section className="container-fluid">
-                <PlayerList />
+                <HeroList />
             </section >
         </div>
     )

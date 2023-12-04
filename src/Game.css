@@ -604,3 +604,41 @@ display: none !important;
 .carousel-wrapper .flickity-viewport, .carousel-wrapper .flickity-slider {
 overflow: visible !important;
 }
+
+.took-damage {
+  animation: 1s linear no-scope-360-rotate ;
+}
+
+@keyframes no-scope-360-rotate {
+  10%{
+    transform: translateX(-5%);
+  }
+  20%{
+    transform: translateX(5%);
+  }
+  30%{
+    transform: translateX(-5%);
+  }
+  40%{
+    transform: translateX(5%);
+  }
+  50% {
+    transform: translateX(-5%);
+  }
+  60% {
+    transform: translateX(5%);
+  }
+  70% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(5%);
+  }
+  90% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0%);
+    filter: hue-rotate(360deg);
+  }
+}
