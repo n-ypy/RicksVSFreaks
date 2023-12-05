@@ -19,6 +19,7 @@ body {
 }
 
 .loading-screen-title {
+    cursor: default;
     position: absolute;
     top: 25%;
     left: 50%;
@@ -91,25 +92,23 @@ body {
         radial-gradient(circle at 50% 50%, #FDFEB4 100%, #FDFEB4 100%);
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 700px) {
     .loading-screen-title {
         font-size: 80px;
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 470px) {
     .loading-screen-title {
         font-size: 60px;
     }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 360px) {
     .loading-screen-title {
         font-size: 50px;
     }
 }
-
-
 
 @keyframes rotating {
     from {
@@ -129,22 +128,126 @@ body {
     }
 }
 
-.rotating {
-    -webkit-animation: rotating 15s linear infinite;
-    -moz-animation: rotating 15s linear infinite;
-    -ms-animation: rotating 15s linear infinite;
-    -o-animation: rotating 15s linear infinite;
-    animation: rotating 15s linear infinite;
-}
-
 @keyframes title-scale {
     0% {
         transform: scale(0.3);
     }
+
     80% {
         transform: scale(1.2);
     }
+
     100% {
         transform: scale(1);
     }
+}
+
+.loading-screen-progress-bar-container {
+    z-index: 9999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 250px;
+    height: 28px;
+    background-color: black;
+    box-shadow: 0px 0px 0px 9px black;
+    border: 4px solid #FFF765;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    overflow: hidden;
+}
+
+.loading-screen-progress-bar {
+    background-color: #08BAE3;
+    height: 100%;
+    width: 0%;
+}
+
+.loading-screen-play-btn {
+    all: unset;
+    z-index: 10000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-color: #08BAE3;
+    box-shadow: 0px 0px 0px 15px black;
+    border: 7px solid #FFF765;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 7px;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    display: grid;
+    animation: title-scale 1s linear;
+}
+
+.loading-screen-play-btn svg {
+    align-self: center;
+    justify-self: center;
+    height: 30px;
+}
+
+.loading-screen-play-btn:hover {
+    transform: scale(1.2);
+    transition: all .2s ease-in-out;
+}
+
+@keyframes throw-away-title {
+    100% {
+        top: -200%;
+        left: 150%;
+        rotate: 360deg;
+        scale: 4;
+    }
+}
+
+.throw-away-title {
+    animation: throw-away-title 1s ease-in;
+}
+
+@keyframes throw-away-btn {
+    100% {
+        top: 200%;
+        left: -150%;
+        rotate: -360deg;
+        scale: 4;
+        opacity: .1;
+    }
+}
+
+.throw-away-btn {
+    animation: throw-away-btn 1s ease-in;
+}
+
+@keyframes scale-rotate-portal {
+    50% {
+        scale: 2;
+        rotate: 360deg;
+    }
+    100% {
+        scale: 4;
+        rotate: 720deg;
+    }
+}
+
+.scale-rotate-portal {
+    animation: scale-rotate-portal 1s ease-in;
+}
+
+
+@keyframes loading-screen-opacity {
+    100% {
+        opacity: .1;
+    }   
+}
+
+.loading-screen-opacity {
+    animation: loading-screen-opacity 1s ease-in;
 }
