@@ -16,16 +16,14 @@ bodyEl.insertAdjacentElement("afterbegin", loadingScreen)
 const portalEl = document.querySelector('.loading-screen-portal')
 
 function bubbleAnimationEffect() {
-    portalEl.style.transition = '1s'
-
     portalEl.style.borderTopLeftRadius = Math.round(Math.random() * 200 + 350) + 'px'
     portalEl.style.borderTopRightRadius = Math.round(Math.random() * 200 + 350) + 'px'
     portalEl.style.borderBottomLeftRadius = Math.round(Math.random() * 200 + 350) + 'px'
     portalEl.style.borderBottomRightRadius = Math.round(Math.random() * 200 + 350) + 'px'
-    setTimeout(bubbleAnimationEffect, 1000)
 }
 
-bubbleAnimationEffect()
+portalEl.style.transition = '1s'
+const bubbleAnimationInterval = setInterval(bubbleAnimationEffect, 1000)
 
 const progressBarEl = document.querySelector('.loading-screen-progress-bar')
 let i = 0
@@ -35,7 +33,7 @@ const progrssBarInterval = setInterval(() => {
         clearInterval(progrssBarInterval)
     }
     i++
-}, Math.floor(Math.random() * 66))
+}, Math.floor(Math.random() * 132))
 
 
 const playBtnEl = document.createElement("button")
@@ -56,7 +54,10 @@ function throwAwayElements() {
 
     portalEl.classList.add('scale-rotate-portal')
     loadingScreen.classList.add('loading-screen-opacity')
-    setTimeout(()=>{loadingScreen.remove()}, 950)
+    setTimeout(()=>{
+        loadingScreen.remove()
+        clearInterval(bubbleAnimationInterval)
+    }, 950)
     playBtnEl.removeEventListener("click", throwAwayElements)
 }
 
