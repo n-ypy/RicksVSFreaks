@@ -130,11 +130,11 @@ body {
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    width: 250px;
-    height: 20px;
+    width: min(250px, 80svw);
+    height: min(20px, 4.53svh);
     background-color: black;
-    box-shadow: 0px 0px 0px 15px black;
-    border: 7px solid #FFF765;
+    box-shadow: 0px 0px 0px min(15px, 3.4svh) black;
+    border: min(7px, 1.7svh) solid #FFF765;
     border-radius: 13px;
     display: flex;
     flex-direction: row;
