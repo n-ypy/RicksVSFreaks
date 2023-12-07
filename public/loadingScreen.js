@@ -67,6 +67,6 @@ window.addEventListener("load", function () {
     i = 100
     this.setTimeout(() => {
         progressBarContainerEl.remove()
-        bodyEl.insertAdjacentElement("afterbegin", playBtnEl)
+        loadingScreen.insertAdjacentElement("afterbegin", playBtnEl)
     }, 500)
 })

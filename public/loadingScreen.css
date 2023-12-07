@@ -14,13 +14,13 @@ body {
     z-index: 999;
     height: 100svh;
     width: 100%;
-    position: absolute;
+    position: fixed;
     background-color: black;
 }
 
 .loading-screen-title {
     cursor: default;
-    position: absolute;
+    position: fixed;
     top: 25%;
     left: 50%;
     translate: -50% -50%;
@@ -49,7 +49,7 @@ body {
 }
 
 .loading-screen-portal {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -126,15 +126,15 @@ body {
 
 .loading-screen-progress-bar-container {
     z-index: 9999;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    width: min(250px, 80svw);
-    height: min(20px, 4.53svh);
+    width: min(70svw, 60svh);
+    height: min(4.2svw, 2.82svh);
     background-color: black;
-    box-shadow: 0px 0px 0px min(15px, 3.4svh) black;
-    border: min(7px, 1.7svh) solid #FFF765;
+    box-shadow: 0px 0px 0px min(3.03svw, 2.28svh) black;
+    border: min(1.52svw, 1.14svh) solid #FFF765;
     border-radius: 13px;
     display: flex;
     flex-direction: row;
@@ -151,17 +151,17 @@ body {
 .loading-screen-play-btn {
     all: unset;
     z-index: 10000;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     background-color: #08BAE3;
-    box-shadow: 0px 0px 0px min(15px, 3.4svh) black;
-    border: min(7px, 1.7svh) solid #FFF765;
+    box-shadow: 0px 0px 0px min(3.03svw, 2.28svh) black;
+    border: min(1.52svw, 1.14svh) solid #FFF765;
     border-radius: 50%;
     padding: 7px;
-    height: min(35px, 7svh);
-    width: min(35px, 7svh);
+    height: min(7svw, 4.7svh);
+    width: min(7svw, 4.7svh);
     cursor: pointer;
     display: grid;
     animation: title-scale 1s linear;
@@ -170,7 +170,7 @@ body {
 .loading-screen-play-btn svg {
     align-self: center;
     justify-self: center;
-    height: min(30px, 6svh);
+    height: min(6.2svw, 4.3svh);
 }
 
 .loading-screen-play-btn:hover {
