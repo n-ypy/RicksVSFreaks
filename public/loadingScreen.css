@@ -27,7 +27,7 @@ body {
     width: 100%;
     text-align: center;
     font-family: 'Get Schwifty';
-    font-size: 120px;
+    font-size: min(15svw, 15vh);
     color: #08BAE3;
     z-index: 50;
     -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
@@ -90,24 +90,6 @@ body {
         radial-gradient(circle at 49% 35%, transparent 40%, #FFF8C5 37%),
         radial-gradient(circle at 79% 59%, transparent 40%, #FFFE9C 37%),
         radial-gradient(circle at 50% 50%, #FDFEB4 100%, #FDFEB4 100%);
-}
-
-@media screen and (max-width: 700px) {
-    .loading-screen-title {
-        font-size: 80px;
-    }
-}
-
-@media screen and (max-width: 470px) {
-    .loading-screen-title {
-        font-size: 60px;
-    }
-}
-
-@media screen and (max-width: 360px) {
-    .loading-screen-title {
-        font-size: 50px;
-    }
 }
 
 @keyframes rotating {
@@ -174,15 +156,12 @@ body {
     left: 50%;
     translate: -50% -50%;
     background-color: #08BAE3;
-    box-shadow: 0px 0px 0px 15px black;
-    border: 7px solid #FFF765;
-    text-align: center;
+    box-shadow: 0px 0px 0px min(15px, 3.4svh) black;
+    border: min(7px, 1.7svh) solid #FFF765;
     border-radius: 50%;
-    font-weight: bold;
-    font-size: 25px;
     padding: 7px;
-    height: 35px;
-    width: 35px;
+    height: min(35px, 7svh);
+    width: min(35px, 7svh);
     cursor: pointer;
     display: grid;
     animation: title-scale 1s linear;
@@ -191,7 +170,7 @@ body {
 .loading-screen-play-btn svg {
     align-self: center;
     justify-self: center;
-    height: 30px;
+    height: min(30px, 6svh);
 }
 
 .loading-screen-play-btn:hover {
