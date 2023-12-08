@@ -57,7 +57,6 @@
     font-size: min(4svh, 6svw);
     margin-top: -4svh;
     text-align: center;
-    translate: 2%;
 }
 
 .selected-heroes {
@@ -86,6 +85,7 @@
     object-fit: contain;
     width: 115%;
     max-height: 115%;
+    z-index: 1;
 }
 
 .hero-selection-card-container {
@@ -113,6 +113,7 @@
     width: 110%;
     max-height: 110%;
     transition: all .5s linear;
+    z-index: 1;
 }
 
 .hero-selection-card:hover img {
@@ -170,7 +171,9 @@
 }
 
 .hero-description {
-    background-color: rgba(255, 255, 255, 0.7);
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    background: radial-gradient(ellipse at bottom, #1b273571 0%, #090a0f71 100%);
+    color: white;
     width: 100%;
     height: 100%;
     translate: 0 91.5%;
@@ -181,31 +184,33 @@
     text-align: center;
     font-weight: bold;
     height: 8.5%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.4);
+    color: black;
 }
 
 .hero-description-role {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.4);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     padding-bottom: 2%;
+    color: black;
 }
 
 .hero-description-role svg {
     height: 1em;
 }
 
-.fighter-role-icon{
+.fighter-role-icon {
     fill: rgb(199, 47, 47);
 }
 
-.support-role-icon{
+.support-role-icon {
     fill: rgb(47, 166, 199)
 }
 
-.healer-role-icon{
+.healer-role-icon {
     fill: rgb(47, 199, 80)
 }
 
@@ -243,21 +248,24 @@
 }
 
 .heal-icon {
-    fill: rgb(28, 154, 66);
+    fill: rgb(24, 127, 55);
 }
 
 .hero-description-ability-name {
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 8.5%;
     margin-top: 3%;
-    font-weight: bold;
+    color: #ffffff;
+    margin: 0 2px;
 }
 
 .hero-description-ability-name svg {
     height: 1em;
+    fill: #ffffff
 }
 
 .hero-description-ability-cost {
@@ -283,15 +291,199 @@
 }
 
 .enemy-overview-card {
-    height: 72svh;
-    max-height: calc(40svw + 8svh);
+    height: 83svh;
+    max-height: calc(40svw + 19svh);
     display: flex;
     flex-direction: column-reverse;
     align-items: end;
+    translate: 0 13svh;
+    z-index: 1;
+    animation: translate-enemy-card .3s linear;
 }
 
 .enemy-overview-card img {
-    object-fit:contain;
+    object-fit: contain;
     max-width: 100%;
     max-height: 110%;
+}
+
+.enemy-select {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 13svh;
+    z-index: 2;
+}
+
+.enemy-select div {
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 2px double #ccc;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 8.5svh;
+    height: 8.5svh;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin: 0 10px;
+    max-height: 4.5svw;
+    max-width: 4.5svw;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.enemy-select div:hover {
+    transform: scale(1.1);
+}
+
+.enemy-select div:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+
+.enemy-select div:active {
+    transform: scale(1.2);
+}
+
+.enemy-select div img {
+    object-fit: contain;
+    width: 115%;
+    max-height: 115%;
+    filter: grayscale(100%);
+    transition: all .2s linear;
+}
+
+.enemy-title {
+    margin-bottom: -13svh;
+}
+
+.enemy-select .selected-enemy {
+    border-color: rgb(105, 173, 83);
+    background: radial-gradient(ellipse at bottom, #1b2735c7 0%, #090a0fc7 100%);
+}
+
+.enemy-select .selected-enemy img {
+    filter: unset;
+}
+
+.hero-selection .selected-hero {
+    border-color: rgb(105, 173, 83);
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+.selected-hero .hero-description {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.vs-title-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    text-align: center;
+    z-index: -1;
+}
+
+.vs-title-container .title {
+    width: 100%;
+    cursor: default;
+    position: absolute;
+    font-family: 'Get Schwifty';
+    font-size: min(16svh, 16svw);
+    color: #08BAE3;
+    z-index: 3;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+}
+
+.vs-title-container .title.middle {
+    -webkit-text-stroke: 0.1em #FFF765;
+    z-index: 2;
+}
+
+.vs-title-container .title.bottom {
+    position: unset;
+    -webkit-text-stroke: 0.4em black;
+    z-index: 1;
+}
+
+.start-fight-btn {
+    all: unset;
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    translate: -50% -105%;
+    text-align: center;
+    animation-name: title-scale, hue-rotate-scale;
+    animation-duration: .5s, 1s;
+    animation-iteration-count: 1, infinite;
+    animation-timing-function: linear, linear;
+    animation-direction: normal, alternate;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.start-fight-btn .title {
+    cursor: pointer;
+}
+
+.start-fight-btn:hover {
+    transform: scale(1.1);
+    animation: unset;
+}
+
+@keyframes hue-rotate-scale {
+    0% {
+        filter: hue-rotate(0deg);
+        transform: rotate(-3deg);
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.05;
+    }
+
+    100% {
+        filter: hue-rotate(150deg);
+        transform: rotate(3deg);
+        scale: .95;
+    }
+}
+
+@keyframes translate-enemy-card{
+    0%{
+        translate: 50% 13svh;
+    }
+
+    100%{
+        translate: 0 13svh;
+    }
+}
+
+@media screen and (max-aspect-ratio: 16/10.1) {
+    .enemy-overview-card {
+        height: 70svh;
+        max-height: calc(40svw + 6svh);
+        translate: 0;
+    }
+
+    .enemy-overview-card img {
+        max-height: 105%;
+    }
+
+    .enemy-title {
+        margin-bottom: 0;
+    }
+
+    @keyframes translate-enemy-card{
+        0%{
+            translate: 50% 0;
+        }
+    
+        100%{
+            translate: 0 0;
+        }
+    }
 }

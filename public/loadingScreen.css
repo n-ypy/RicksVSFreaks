@@ -226,3 +226,34 @@ body {
 .loading-screen-opacity {
     animation: loading-screen-opacity 1s ease-in;
 }
+
+#rotate-your-device {
+    display: none;
+    position: fixed;
+    z-index: 899;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+#rotate-your-device {
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 6svw;
+
+}
+
+#rotate-your-device svg{
+    margin-top: 6svw;
+    height: 15svw;
+}
+
+
+@media (max-aspect-ratio: 1/1) {
+    #rotate-your-device {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

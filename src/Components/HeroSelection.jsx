@@ -13,6 +13,7 @@ export default function HeroSelection() {
                 <div className='title middle'> Ricks<span>vs</span>Freaks</div>
                 <div className='title bottom'> Ricks<span>vs</span>Freaks</div>
             </div>
+
             <div className='selection-container'>
 
                 <div className='hero-selection'>
@@ -69,7 +70,7 @@ export default function HeroSelection() {
                                             <div>Active Ability</div>
                                         </div>
                                         <div className='hero-description-ability-cost'>
-                                            <div>Cost:</div>
+                                            <div>Cost:&nbsp;</div>
                                             <div>98</div>
                                             <svg className='energy-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path
@@ -92,7 +93,7 @@ export default function HeroSelection() {
                                     </div>
                                 </div>
                             </div>
-                            <img src="/public/images/hero/BethClone/BethCloneFront.png" alt="" />
+                            <img src="/public/images/hero/front/BethClone.png" alt="" />
                         </div>
                         <div className='hero-selection-card'>
                             <div className='hero-selection-card-description'>
@@ -145,7 +146,7 @@ export default function HeroSelection() {
                                             <div>Active Ability</div>
                                         </div>
                                         <div className='hero-description-ability-cost'>
-                                            <div>Cost:</div>
+                                            <div>Cost:&nbsp;</div>
                                             <div>98</div>
                                             <svg className='energy-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path
@@ -168,7 +169,7 @@ export default function HeroSelection() {
                                     </div>
                                 </div>
                             </div>
-                            <img src="/public/images/hero/CommanderRick/CommanderRickFront.png" alt="" />
+                            <img src="/public/images/hero/front/CommanderRick.png" alt="" />
                         </div>
                         <div className='hero-selection-card'>
                             <div className='hero-selection-card-description'>
@@ -221,7 +222,7 @@ export default function HeroSelection() {
                                             <div>Active Ability</div>
                                         </div>
                                         <div className='hero-description-ability-cost'>
-                                            <div>Cost:</div>
+                                            <div>Cost:&nbsp;</div>
                                             <div>98</div>
                                             <svg className='energy-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path
@@ -244,7 +245,7 @@ export default function HeroSelection() {
                                     </div>
                                 </div>
                             </div>
-                            <img src="/public/images/hero/GotronSummer/GotronSummerFront.png" alt="" />
+                            <img src="/public/images/hero/front/GotronSummer.png" alt="" />
                         </div>
                         <div className='hero-selection-card'>
                             <div className='hero-selection-card-description'>
@@ -297,7 +298,7 @@ export default function HeroSelection() {
                                             <div>Active Ability</div>
                                         </div>
                                         <div className='hero-description-ability-cost'>
-                                            <div>Cost:</div>
+                                            <div>Cost:&nbsp;</div>
                                             <div>98</div>
                                             <svg className='energy-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path
@@ -320,7 +321,7 @@ export default function HeroSelection() {
                                     </div>
                                 </div>
                             </div>
-                            <img src="/public/images/hero/MortyPhantom/MortyPhantomFront.png" alt="" />
+                            <img src="/public/images/hero/front/MortyPhantom.png" alt="" />
                         </div>
                         <div className='hero-selection-card'>
                             <div className='hero-selection-card-description'>
@@ -373,7 +374,7 @@ export default function HeroSelection() {
                                             <div>Active Ability</div>
                                         </div>
                                         <div className='hero-description-ability-cost'>
-                                            <div>Cost:</div>
+                                            <div>Cost:&nbsp;</div>
                                             <div>98</div>
                                             <svg className='energy-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path
@@ -396,7 +397,7 @@ export default function HeroSelection() {
                                     </div>
                                 </div>
                             </div>
-                            <img src="/public/images/hero/MortyRick/MortyRickFront.png" alt="" />
+                            <img src="/public/images/hero/front/MortyRick.png" alt="" />
                         </div>
                         <div className='hero-selection-card'>
                             <div className='hero-selection-card-description'>
@@ -449,7 +450,7 @@ export default function HeroSelection() {
                                             <div>Active Ability</div>
                                         </div>
                                         <div className='hero-description-ability-cost'>
-                                            <div>Cost:</div>
+                                            <div>Cost:&nbsp;</div>
                                             <div>98</div>
                                             <svg className='energy-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path
@@ -472,11 +473,11 @@ export default function HeroSelection() {
                                     </div>
                                 </div>
                             </div>
-                            <img src="/public/images/hero/MrNimbus/MrNimbusFront.png" alt="" />
+                            <img src="/public/images/hero/front/MrNimbus.png" alt="" />
                         </div>
-                        <div className='hero-selection-card'>
+                        <div className='hero-selection-card selected-hero'>
                             <div className='hero-selection-card-description'>
-                                <button type='button' className='hero-selection-btn btn-add-hero'>+</button>
+                                <button type='button' className='hero-selection-btn btn-remove-hero'>-</button>
                                 <div className='hero-description-wrapper'>
                                     <div className='hero-description'>
                                         <div className='hero-description-name'>Original Jerry</div>
@@ -525,7 +526,7 @@ export default function HeroSelection() {
                                             <div>Active Ability</div>
                                         </div>
                                         <div className='hero-description-ability-cost'>
-                                            <div>Cost:</div>
+                                            <div>Cost:&nbsp;</div>
                                             <div>98</div>
                                             <svg className='energy-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path
@@ -548,7 +549,7 @@ export default function HeroSelection() {
                                     </div>
                                 </div>
                             </div>
-                            <img src="/public/images/hero/OriginalJerry/OriginalJerryFront.png" alt="" />
+                            <img src="/public/images/hero/front/OriginalJerry.png" alt="" />
                         </div>
                         <div className='hero-selection-card'>
                             <div className='hero-selection-card-description'>
@@ -601,7 +602,7 @@ export default function HeroSelection() {
                                             <div>Active Ability</div>
                                         </div>
                                         <div className='hero-description-ability-cost'>
-                                            <div>Cost:</div>
+                                            <div>Cost:&nbsp;</div>
                                             <div>98</div>
                                             <svg className='energy-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path
@@ -624,43 +625,52 @@ export default function HeroSelection() {
                                     </div>
                                 </div>
                             </div>
-                            <img src="/public/images/hero/PickleRick/PickleRickFront.png" alt="" />
+                            <img src="/public/images/hero/front/PickleRick.png" alt="" />
                         </div>
                     </div>
                     <div className='selected-heroes'>
                         <div className='selected-hero-4'>
-                            <img src="/public/images/RickDefaultIcon.png" alt="" />
+                            <img src="/public/images/hero/icon/Default.png" alt="" />
                         </div>
                         <div className='selected-hero-3'>
-                            <img src="/public/images/RickDefaultIcon.png" alt="" />
+                            <img src="/public/images/hero/icon/Default.png" alt="" />
                         </div>
                         <div className='selected-hero-2'>
-                            <img src="/public/images/RickDefaultIcon.png" alt="" />
+                            <img src="/public/images/hero/icon/Default.png" alt="" />
                         </div>
                         <div className='selected-hero-1'>
-                            <img src="/public/images/hero/OriginalJerry/OriginalJerryIcon.png" alt="" />
+                            <img src="/public/images/hero/icon/OriginalJerry.png" alt="" />
                         </div>
                     </div>
                 </div>
                 <div className='enemy-selection-container'>
-                <div className='hero-selection-title'>SELECT YOUR ENEMY</div>
-                    <div className='selected-heroes'>
-                        <div className='selected-hero-4'>
-                            <img src="/public/images/enemy/FortuneQueen/FortuneQueenDown_1.png" alt="" />
-                        </div>
-                        <div className='selected-hero-3'>
-                            <img src="/public/images/enemy/BethsMytholog/BethsMythologDown_1.png" alt="" />
-                        </div>
-                        <div className='selected-hero-2'>
-                            <img src="/public/images/enemy/Snowball/SnowballDown_1.png" alt="" />
-                        </div>
-    
-                    </div>
+                    <div className='hero-selection-title enemy-title'>SELECT AN ENEMY</div>
                     <div className='enemy-overview-card'>
-                        <img src="/public/images/enemy/BethsMytholog/BethsMythologFront.png" alt="" />
+                        <img src="/public/images/enemy/front/BethsMytholog.png" alt="" />
+                    </div>
+                    <div className='enemy-select'>
+                        <div>
+                            <img src="/public/images/enemy/down/FortuneQueen_1.png" alt="" />
+                        </div>
+                        <div className='selected-enemy'>
+                            <img src="/public/images/enemy/down/BethsMytholog_1.png" alt="" />
+                        </div>
+                        <div>
+                            <img src="/public/images/enemy/down/Snowball_1.png" alt="" />
+                        </div>
                     </div>
                 </div>
             </div>
+            <div className='vs-title-container'>
+                <div className='title'>VS</div>
+                <div className='title middle'>VS</div>
+                <div className='title bottom'>VS</div>
+            </div>
+            <button type="button" className='start-fight-btn'>
+                <div className='title'>FIGHT</div>
+                <div className='title middle'>FIGHT</div>
+                <div className='title bottom'>FIGHT</div>
+            </button>
         </div>
     </>
     )
