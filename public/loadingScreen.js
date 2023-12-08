@@ -33,7 +33,7 @@ const progrssBarInterval = setInterval(() => {
         clearInterval(progrssBarInterval)
     }
     i++
-}, Math.floor(Math.random() * 132))
+}, Math.floor(Math.random() * 100 + i))
 
 
 const playBtnEl = document.createElement("button")
