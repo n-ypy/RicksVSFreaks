@@ -9,10 +9,6 @@ const enemies =
             displayName: "Fortune Queen"
         },
         {
-            name: "GotronSummer",
-            displayName: "Gotron Summer"
-        },
-        {
             name: "Snowball",
             displayName: "Snowball"
         }

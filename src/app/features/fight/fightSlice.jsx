@@ -83,9 +83,14 @@ export const fightSlice = createSlice({
                 const damage = Math.min(hero.hp, Math.ceil(Math.random() * 3))
                 hero.hp -= damage
             }
+        },
+        setEnemyAndHeroes: (state, action) => {
+            state.heroes = action.payload.heroes
+            state.enemy = action.payload.enemy
+            console.log(state.heroes, state.enemy)
         }
     },
 })
 
-export const { heroTurn, enemyTurn } = fightSlice.actions
+export const { heroTurn, enemyTurn, setEnemyAndHeroes } = fightSlice.actions
 export default fightSlice.reducer
