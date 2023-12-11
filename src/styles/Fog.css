@@ -1,18 +1,10 @@
-  .fogwrapper {
-      height: 100%;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      -webkit-filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
-      filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
-  }
-
   #foglayer_01,
   #foglayer_02,
   #foglayer_03 {
       height: 100%;
       position: absolute;
       width: 200%;
+      z-index: 30;
   }
 
   #foglayer_01 .image01,
