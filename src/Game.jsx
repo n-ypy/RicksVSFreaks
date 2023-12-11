@@ -1,22 +1,18 @@
 import { useState } from 'react';
-import Enemy from './Components/Enemy';
-import HeroList from './Components/HeroList';
 import HeroSelection from './Components/HeroSelection';
 import './styles/Game.css';
 import Fight from './Components/Fight';
+import './styles/StarBackground.css'
 
 export default function Game() {
 
-    const[isFightInitiated, setIsFightInitiated] = useState(false)
+    const [isFightInitiated, setIsFightInitiated] = useState(false)
 
-    return (
-        isFightInitiated ? <Fight /> : <HeroSelection setIsFightInitiated={setIsFightInitiated} />
-        // <div className="App">
-        //     <Enemy />
-        //     <br></br>
-        //     <section className="container-fluid">
-        //         <HeroList />
-        //     </section >
-        // </div>
+    return (<>
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        {isFightInitiated ? <Fight /> : <HeroSelection setIsFightInitiated={setIsFightInitiated} />}
+    </>
     )
 }

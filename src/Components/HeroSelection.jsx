@@ -1,5 +1,4 @@
 import '../styles/HeroSelection.css'
-import '../styles/StarBackground.css'
 import heroes from '../app/heroes'
 import enemies from '../app/enemies'
 import HeroSelectionCard from './HeroSelectionEls/HeroSlectionCard'
@@ -50,33 +49,30 @@ export default function HeroSelection({ setIsFightInitiated }) {
     }
 
     return (
-    <>
-        <div id='stars'></div>
-        <div id='stars2'></div>
-        <div id='stars3'></div>
-        <div className='hero-selection-page'>
-            <div className={`title-container${animationTrigger ? ' move-title' : ''}`}>
-                <div className='title'>Ricks<span>vs</span>Freaks</div>
-                <div className='title middle'> Ricks<span>vs</span>Freaks</div>
-                <div className='title bottom'> Ricks<span>vs</span>Freaks</div>
-            </div>
-            <div className='selection-container'>
-                <div className={`hero-selection${animationTrigger ? ' move-hero-container' : ''}`}>
-                    <div className='hero-selection-title'>BUILD YOUR TEAM</div>
-                    <div className='hero-selection-card-container'>
-                        {heroes.map(hero => <HeroSelectionCard key={hero.name} toggleHeroSelect={toggleHeroSelect} hero={hero} />)}
-                    </div>
-                    <SelectedHeroesIndicator selectedHeroes={selectedHeroes} />
+        <>
+            <div className='hero-selection-page'>
+                <div className={`title-container${animationTrigger ? ' move-title' : ''}`}>
+                    <div className='title'>Ricks<span>vs</span>Freaks</div>
+                    <div className='title middle'> Ricks<span>vs</span>Freaks</div>
+                    <div className='title bottom'> Ricks<span>vs</span>Freaks</div>
                 </div>
-                <EnemyCard animationTrigger={animationTrigger} enemies={enemies} selectedEnemy={selectedEnemy} selectEnemy={selectEnemy} />
+                <div className='selection-container'>
+                    <div className={`hero-selection${animationTrigger ? ' move-hero-container' : ''}`}>
+                        <div className='hero-selection-title'>BUILD YOUR TEAM</div>
+                        <div className='hero-selection-card-container'>
+                            {heroes.map(hero => <HeroSelectionCard key={hero.name} toggleHeroSelect={toggleHeroSelect} hero={hero} />)}
+                        </div>
+                        <SelectedHeroesIndicator selectedHeroes={selectedHeroes} />
+                    </div>
+                    <EnemyCard animationTrigger={animationTrigger} enemies={enemies} selectedEnemy={selectedEnemy} selectEnemy={selectEnemy} />
+                </div>
+                <div className={`vs-title-container${animationTrigger ? ' animate-vs' : ''}`}>
+                    <div className='title'>VS</div>
+                    <div className='title middle'>VS</div>
+                    <div className='title bottom'>VS</div>
+                </div>
+                {selectedHeroes.findIndex(el => el === null) === -1 && !animationTrigger && <StartFightBtn confirmSelection={confirmSelection} />}
             </div>
-            <div className={`vs-title-container${animationTrigger ? ' animate-vs' : ''}`}>
-                <div className='title'>VS</div>
-                <div className='title middle'>VS</div>
-                <div className='title bottom'>VS</div>
-            </div>
-            {selectedHeroes.findIndex(el => el === null) === -1 && !animationTrigger && <StartFightBtn confirmSelection={confirmSelection} />}
-        </div>
-    </>
+        </>
     )
 }

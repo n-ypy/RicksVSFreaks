@@ -40,7 +40,7 @@
 
 .selection-container {
     color: white;
-    font-family: 'Concert One', sans-serif;
+    font-family: 'Dosis', sans-serif;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -57,6 +57,7 @@
     font-size: min(4svh, 6svw);
     margin-top: -4svh;
     text-align: center;
+    font-weight: 800;
 }
 
 .selected-heroes {
@@ -175,7 +176,6 @@
 }
 
 .hero-description {
-    /* background-color: rgba(255, 255, 255, 0.7); */
     background: radial-gradient(ellipse at bottom, #1b273571 0%, #090a0f71 100%);
     color: white;
     width: 100%;
@@ -186,7 +186,7 @@
 
 .hero-description-name {
     text-align: center;
-    font-weight: bold;
+    font-weight: 700;
     height: 8.5%;
     background-color: rgba(255, 255, 255, 0.4);
     color: black;
@@ -207,15 +207,15 @@
 }
 
 .fighter-role-icon {
-    fill: rgb(199, 47, 47);
+    fill: var(--fighter-color);
 }
 
 .support-role-icon {
-    fill: rgb(47, 166, 199)
+    fill: var(--support-color);
 }
 
 .healer-role-icon {
-    fill: rgb(47, 199, 80)
+    fill: var(--healer-color);
 }
 
 .hero-description-stats {
@@ -232,6 +232,7 @@
     flex-direction: row;
     align-items: center;
     margin: 0 2%;
+    font-weight: 700;
 }
 
 .hero-description-stat-icon {
@@ -240,19 +241,19 @@
 }
 
 .hp-icon {
-    fill: rgb(154, 28, 28);
+    fill: var(--health-color);
 }
 
 .energy-icon {
-    fill: rgb(154, 154, 28);
+    fill: var(--energy-color);
 }
 
 .damage-icon {
-    fill: rgb(28, 89, 154);
+    fill: var(--damage-color);
 }
 
 .heal-icon {
-    fill: rgb(24, 127, 55);
+    fill: var(--heal-color);
 }
 
 .hero-description-ability-name {
@@ -262,9 +263,10 @@
     align-items: center;
     justify-content: center;
     height: 8.5%;
-    margin-top: 3% !important; 
+    margin-top: 3% !important;
     color: #ffffff;
     margin: 0 2px;
+    font-weight: 600;
 }
 
 .hero-description-ability-name svg {
@@ -459,12 +461,12 @@
     }
 }
 
-@keyframes translate-enemy-card{
-    0%{
+@keyframes translate-enemy-card {
+    0% {
         translate: 50% 0;
     }
 
-    100%{
+    100% {
         translate: 0 0;
     }
 }
