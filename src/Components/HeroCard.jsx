@@ -37,7 +37,7 @@ export default function HeroCard({ heroIndex }) {
                 <span className="badge badge-danger ml-2 " id="degatSpanJ1"></span>
                 <div className="row ">
                     {hero.hp > 0 &&
-                        <div >
+                        <div>
                             <ButtonCapacity hero={hero} actionName={'heal'} actionValue={5}  actionCost={5} />
                             <ButtonCapacity hero={hero} actionName={'restoreMana'} actionValue={5} actionCost={0}/>
                             <ButtonCapacity hero={hero} actionName={'hit'} actionValue={5} actionCost={5} />
