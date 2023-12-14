@@ -8,4 +8,6 @@
     --support-color: rgb(47, 166, 199);
     --fighter-color: rgb(199, 47, 47);
     --healer-color: rgb(47, 199, 80);
+    --add-color: rgb(105, 173, 83);
+    --remove-color: rgb(158, 71, 71);
 }

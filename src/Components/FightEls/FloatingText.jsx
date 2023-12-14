@@ -1,8 +1,8 @@
 import { HealIcon, HealthIcon, EnergyIcon } from "../Icons"
 
 export default function FloatingText({ type, minusPlus, value, isEnemy }) {
-    const icon = null
-    const symbol = null
+    let icon = null
+    let symbol = null
 
     switch (type) {
         case 'health':
@@ -29,7 +29,7 @@ export default function FloatingText({ type, minusPlus, value, isEnemy }) {
     return (
         <>
             <div
-                className={"floating-text " + type + "-" + minusPlus + isEnemy ? "enemy-floating-text" : ""}
+                className={"floating-text " + type + "-" + minusPlus + (isEnemy ? " enemy-floating-text" : "")}
             >
                 {symbol} {value} {icon}
             </div>

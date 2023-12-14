@@ -8,6 +8,11 @@ const initialState = {
 }
 
 
+function findHero(heroes, heroId) {
+    return heroes.find(hero => hero.id === heroId)
+} 
+
+
 function hitEnemy(enemy, value) {
     const damage = Math.min(enemy.hp, value)
     enemy.hp -= damage
@@ -83,20 +88,32 @@ export const fightSlice = createSlice({
             state.enemy.hp = action.payload.value
         },
         setEnemyFloatingText: (state, action) => {
-            state.enemy.tookDamage = action.payload.value
+            state.enemy.floatingText = action.payload.value
         },
         setHeroHp: (state, action) => {
-            state.heroes[action.payload.heroIndex].hp = action.payload.value
+            const hero = findHero(state.heroes, action.payload.heroId)
+            hero.hp = action.payload.value
         },
         setHeroEnergy: (state, action) => {
-            state.heroes[action.payload.heroIndex].energy = action.payload.value
+            const hero = findHero(state.heroes, action.payload.heroId)
+            hero.energy = action.payload.value
         },
         setHeroStatus: (state, action) => {
-            state.heroes[action.payload.heroIndex].status = action.payload.value
+            const hero = findHero(state.heroes, action.payload.heroId)
+            hero.status = action.payload.value
         },
-
+        setHeroFloatingText: (state, action) => {
+            const hero = findHero(state.heroes, action.payload.heroId)
+            hero.floatingText = action.payload.value
+        },
+        setNextRound: (state) => {
+            state.round++
+        },
+        setFightStatus: (state, action) => {
+            state.fight.status = action.payload.value
+        }
     },
 })
 
-export const { setHeroHp, setHeroEnergy, setHeroStatus, setEnemyHp, setEnemyFloatingText } = fightSlice.actions
+export const { setFightStatus, setNextRound, setEnemyAndHeroes, setHeroHp, setHeroEnergy, setHeroStatus, setEnemyHp, setEnemyFloatingText, setHeroFloatingText } = fightSlice.actions
 export default fightSlice.reducer

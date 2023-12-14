@@ -12,6 +12,7 @@
 }
 
 .round-indicator {
+    font-family: 'Dosis', sans-serif;
     color: white;
     font-size: xx-large;
     border-left: 2px solid white;
@@ -60,6 +61,7 @@
     justify-content: center;
     color: white;
     align-items: center;
+    font-family: 'Dosis', sans-serif;
 }
 
 .progress-bar-progress {
@@ -110,14 +112,33 @@
 
 .spell-bar-btn {
     all: unset;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 800;
     height: 80%;
-    border: 1px solid black;
-    width: 300px;
-    background-color: white;
-    margin: 0 20px;
-    text-align: center;
+    min-width: 175px;
+    margin: 0 17px;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.attack-btn {
+    background-color: var(--remove-color);
+    color: white;
+}
+
+.heal-btn {
+    background-color: var(--heal-color);
+    color: white;
+}
+
+.ability-btn {
+    background-color: var(--energy-color);
+    color: white;
 }
 
 .heroes-row {
@@ -193,6 +214,17 @@
     content: var(--hero-up-1) var(--hero-up-2) var(--hero-up-3) var(--hero-down-1) var(--hero-down-2) var(--hero-down-3) var(--hero-side-1) var(--hero-side-2) var(--hero-side-3);
 }
 
-.fight-page-fight-end{
+.fight-page-fight-end {
     filter: grayscale(1);
+}
+
+.spell-bar-btn:disabled {
+    background-color: #868686;
+    cursor: default;
+}
+
+.spell-bar-btn svg {
+    height: 1rem;
+    margin-left: 0.2rem;
+    fill: white
 }

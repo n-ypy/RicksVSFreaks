@@ -1,6 +1,7 @@
 const heroes =
     [
         {
+            id: 0,
             name: 'BethClone',
             displayName: 'Beth Clone',
             role: 'Fighter',
@@ -11,6 +12,7 @@ const heroes =
             damage: 18,
             heal: 12,
             status: 'alive',
+            floatingText: null,
             activeAbility: {
                 energyCost: 25,
                 description: 'Deals 57 damage.',
@@ -20,6 +22,7 @@ const heroes =
             }
         },
         {
+            id: 2,
             name: 'CommanderRick',
             displayName: 'Commander Rick',
             role: 'Support',
@@ -30,6 +33,7 @@ const heroes =
             damage: 11,
             heal: 19,
             status: 'alive',
+            floatingText: null,
             activeAbility: {
                 energyCost: 27,
                 description: 'Halves enemy damage for one turn.',
@@ -39,6 +43,7 @@ const heroes =
             }
         },
         {
+            id: 3,
             name: 'GotronSummer',
             displayName: 'Gotron Summer',
             role: 'Healer',
@@ -49,6 +54,7 @@ const heroes =
             damage: 9,
             heal: 23,
             status: 'alive',
+            floatingText: null,
             activeAbility: {
                 energyCost: 120,
                 description: 'Revives teammate at 50% health.',
@@ -58,6 +64,7 @@ const heroes =
             }
         },
         {
+            id: 4,
             name: 'MortyPhantom',
             displayName: 'Morty Phantom',
             role: 'Support',
@@ -68,6 +75,7 @@ const heroes =
             damage: 10,
             heal: 10,
             status: 'alive',
+            floatingText: null,
             activeAbility: {
                 energyCost: 50,
                 description: 'Grants 10 energy to everyone.',
@@ -77,6 +85,7 @@ const heroes =
             }
         },
         {
+            id: 5,
             name: 'MortyRick',
             displayName: 'Morty Rick',
             role: 'Support',
@@ -87,6 +96,7 @@ const heroes =
             damage: 10,
             heal: 17,
             status: 'alive',
+            floatingText: null,
             activeAbility: {
                 energyCost: 33,
                 description: '30% damage shield to allies for two turns.',
@@ -96,6 +106,7 @@ const heroes =
             }
         },
         {
+            id: 6,
             name: 'MrNimbus',
             displayName: 'Mr Nimbus',
             role: 'Healer',
@@ -106,6 +117,7 @@ const heroes =
             damage: 8,
             heal: 22,
             status: 'alive',
+            floatingText: null,
             activeAbility: {
                 energyCost: 35,
                 description: 'Heals everyone for 70 health.',
@@ -115,6 +127,7 @@ const heroes =
             }
         },
         {
+            id: 7,
             name: 'OriginalJerry',
             displayName: 'Original Jerry',
             role: 'Fighter',
@@ -125,6 +138,7 @@ const heroes =
             damage: 20,
             heal: 10,
             status: 'alive',
+            floatingText: null,
             activeAbility: {
                 energyCost: 30,
                 description: 'Inflicts 60 damage.',
@@ -134,16 +148,18 @@ const heroes =
             }
         },
         {
+            id: 8,
             name: 'PickleRick',
             displayName: 'Pickle Rick',
             role: 'Fighter',
-            hp: 310,
+            hp: 308,
             maxHp: 310,
             energy: 0,
             maxEnergy: 48,
             damage: 22,
             heal: 10,
             status: 'alive',
+            floatingText: null,
             activeAbility: {
                 energyCost: 30,
                 description: 'Boosts damage by 50% and blocks 20% for 2 turns.',
