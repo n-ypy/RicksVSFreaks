@@ -137,8 +137,9 @@
 }
 
 .ability-btn {
-    background-color: var(--energy-color);
+    background: linear-gradient(140deg, rgba(131, 58, 180, 1) 14%, rgba(194, 43, 101, 1) 25%, rgba(253, 29, 29, 1) 51%, rgba(253, 71, 41, 1) 58%, rgba(252, 176, 69, 1) 72%);
     color: white;
+    animation: hue-rotate-three-sixty 3s infinite linear;
 }
 
 .heroes-row {
@@ -219,12 +220,48 @@
 }
 
 .spell-bar-btn:disabled {
+    background: none;
     background-color: #868686;
     cursor: default;
+    animation: unset;
 }
 
 .spell-bar-btn svg {
     height: 1rem;
     margin-left: 0.2rem;
     fill: white
+}
+
+.fight-status-screen {
+    position: fixed;
+    z-index: 499;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 100svh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: opacity-zero-to-one .6s linear;
+}
+
+.fight-status-screen img {
+    max-height: 50%;
+}
+
+.fight-status-text {
+    font-family: 'Dosis', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #08BAE3;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    font-size: 50px;
+    font-weight: 800;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

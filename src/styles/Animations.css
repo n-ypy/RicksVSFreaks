@@ -684,3 +684,21 @@
         opacity: 0;
     }
 }
+
+@keyframes hue-rotate-three-sixty {
+    0% {
+        filter: hue-rotate(0)
+    }
+    100% {
+        filter: hue-rotate(360deg)
+    }
+}
+
+@keyframes opacity-zero-to-one {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

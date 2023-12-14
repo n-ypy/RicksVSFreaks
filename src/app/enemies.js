@@ -3,7 +3,7 @@ const enemies =
         {
             name: "BethsMytholog",
             displayName: "Beth's Mytholog",
-            hp: 800,
+            hp: 60,
             maxHp: 1600,
             damage: 55,
             floatingText: null,

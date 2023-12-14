@@ -1,8 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setHeroHp, setHeroEnergy, setHeroStatus, setEnemyHp, setEnemyFloatingText, setHeroFloatingText } from '/src/app/features/fight/fightSlice'
+import * as FightSliceActions from '/src/app/features/fight/fightSlice'
 import { DamageIcon, EnergyIcon, HealIcon } from '../Icons';
 
 export default function Abilities({ hero, toggleHeroSelect }) {
+
+    const heroes = useSelector(state => state.fight.heroes)
 
     if (hero.status !== 'alive') {
         return
@@ -34,6 +37,9 @@ export default function Abilities({ hero, toggleHeroSelect }) {
         }
         const heroEnergyAfterAbilityUse = hero.energy - hero.activeAbility.energyCost
         dispatch(setHeroEnergy({ heroId: hero.id, value: heroEnergyAfterAbilityUse }))
+        const energyLost = hero.energy - heroEnergyAfterAbilityUse
+        dispatch(setHeroFloatingText({ heroId: hero.id, value: { type: 'energy', minusPlus: 'minus', value: energyLost } }))
+        hero.activeAbility.action(heroes, dispatch, FightSliceActions, enemyHp, hero)
         endTurn()
     }
 

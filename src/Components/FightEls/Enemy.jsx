@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import Progress from "./Progress"
 import FloatingText from "./FloatingText"
 import { useSelector, useDispatch } from 'react-redux'
-import { setHeroFloatingText, setHeroHp, setHeroStatus, setNextRound } from "../../app/features/fight/fightSlice"
+import { setHeroEnergy, setHeroFloatingText, setHeroHp } from "../../app/features/fight/fightSlice"
 
-export default function Enemy({ enemy }) {
+export default function Enemy({ enemy, canAttack, setCanAttack }) {
 
     const floatingText = useSelector(state => state.fight.enemy.floatingText)
     const heroes = useSelector(state => state.fight.heroes)
@@ -13,7 +13,12 @@ export default function Enemy({ enemy }) {
     const dispatch = useDispatch()
 
     const attackRandomHero = function () {
+        
         const hero = heroes[Math.floor(Math.random() * 3)]
+        if(hero.status === 'dead'){
+            attackRandomHero()
+            return
+        }
         const heroHpAfterHit = Math.max(0, hero.hp - enemy.damage)
         dispatch(setHeroHp({ heroId: hero.id, value: heroHpAfterHit }))
         const effectiveDamage = hero.hp - heroHpAfterHit
@@ -34,28 +39,12 @@ export default function Enemy({ enemy }) {
     }, [floatingText])
 
     useEffect(() => {
-        let canPlay = true
-
-        heroes.forEach(hero => {
-            if (hero.status === 'alive') {
-                canPlay = false
-            }
-        })
-
-        if (!canPlay) {
-            return
+        if(canAttack) {
+            setCanAttack(false)
+            attackRandomHero()
         }
+    }, [canAttack])
 
-        attackRandomHero()
-
-        heroes.forEach(hero => {
-            if (hero.status === 'played') {
-                dispatch(setHeroStatus({ heroId: hero.id, value: "alive" }))
-            }
-        })
-        dispatch(setNextRound())
-
-    }, [heroes])
 
     return (<>
         <div className="enemy-hp-bar-container">

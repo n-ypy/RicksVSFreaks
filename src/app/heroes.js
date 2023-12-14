@@ -8,14 +8,21 @@ const heroes =
             hp: 262,
             maxHp: 262,
             energy: 0,
+            energyRegen: 5,
             maxEnergy: 43,
             damage: 18,
             heal: 12,
             status: 'alive',
             floatingText: null,
             activeAbility: {
-                energyCost: 25,
+                energyCost: 5,
                 description: 'Deals 57 damage.',
+                action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
+                    const enemyHpAfterHit = Math.max(0, enemyHp - hero.damage)
+                    dispatch(FightSliceActions.setEnemyHp({ value: enemyHpAfterHit }))
+                    const effectiveDamage = enemyHp - enemyHpAfterHit
+                    dispatch(FightSliceActions.setEnemyFloatingText({ value: { type: 'health', minusPlus: 'minus', value: effectiveDamage } }))
+                }
             },
             passiveAbility: {
                 description: '10% chance attack power doubles.'
@@ -29,6 +36,7 @@ const heroes =
             hp: 340,
             maxHp: 340,
             energy: 0,
+            energyRegen: 5,
             maxEnergy: 55,
             damage: 11,
             heal: 19,
@@ -50,6 +58,7 @@ const heroes =
             hp: 275,
             maxHp: 275,
             energy: 0,
+            energyRegen: 5,
             maxEnergy: 120,
             damage: 9,
             heal: 23,
@@ -71,14 +80,27 @@ const heroes =
             hp: 220,
             maxHp: 220,
             energy: 0,
+            energyRegen: 5,
             maxEnergy: 60,
             damage: 10,
             heal: 10,
             status: 'alive',
             floatingText: null,
             activeAbility: {
-                energyCost: 50,
+                energyCost: 5,
                 description: 'Grants 10 energy to everyone.',
+                action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
+                    heroes.forEach(hero => {
+                        if (hero.status !== 'dead') {
+                            const energyAfterEnergyRestore = Math.min(hero.maxEnergy, hero.energy + 10)
+                            if (energyAfterEnergyRestore > hero.energy) {
+                                dispatch(FightSliceActions.setHeroEnergy({ heroId: hero.id, value: energyAfterEnergyRestore }))
+                                const energyRestored = energyAfterEnergyRestore - hero.energy
+                                dispatch(FightSliceActions.setHeroFloatingText({ heroId: hero.id, value: { type: 'energy', minusPlus: 'plus', value: energyRestored } }))
+                            }
+                        }
+                    })
+                }
             },
             passiveAbility: {
                 description: 'Dodges attacks with 20% probability.'
@@ -92,6 +114,7 @@ const heroes =
             hp: 305,
             maxHp: 305,
             energy: 0,
+            energyRegen: 5,
             maxEnergy: 66,
             damage: 10,
             heal: 17,
@@ -113,14 +136,28 @@ const heroes =
             hp: 267,
             maxHp: 267,
             energy: 0,
+            energyRegen: 5,
             maxEnergy: 40,
             damage: 8,
             heal: 22,
             status: 'alive',
             floatingText: null,
             activeAbility: {
-                energyCost: 35,
+                energyCost: 5,
                 description: 'Heals everyone for 70 health.',
+                action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
+                    heroes.forEach(hero => {
+                        if (hero.status !== 'dead') {
+                            const healthAfterHeal = Math.min(hero.maxHp, hero.hp + 70)
+                            if (healthAfterHeal > hero.hp) {
+                                dispatch(FightSliceActions.setHeroHp({ heroId: hero.id, value: healthAfterHeal }))
+                                const healed = healthAfterHeal - hero.hp
+                                dispatch(FightSliceActions.setHeroFloatingText({ heroId: hero.id, value: { type: 'health', minusPlus: 'plus', value: healed } }))
+                            }
+                        }
+                    })
+                }
+
             },
             passiveAbility: {
                 description: 'Gains 3 energy when damaged.'
@@ -134,14 +171,21 @@ const heroes =
             hp: 280,
             maxHp: 280,
             energy: 0,
+            energyRegen: 5,
             maxEnergy: 50,
             damage: 20,
             heal: 10,
             status: 'alive',
             floatingText: null,
             activeAbility: {
-                energyCost: 30,
+                energyCost: 5,
                 description: 'Inflicts 60 damage.',
+                action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
+                    const enemyHpAfterHit = Math.max(0, enemyHp - hero.damage)
+                    dispatch(FightSliceActions.setEnemyHp({ value: enemyHpAfterHit }))
+                    const effectiveDamage = enemyHp - enemyHpAfterHit
+                    dispatch(FightSliceActions.setEnemyFloatingText({ value: { type: 'health', minusPlus: 'minus', value: effectiveDamage } }))
+                }
             },
             passiveAbility: {
                 description: '10% chance to absorb incoming damage.'
@@ -155,6 +199,7 @@ const heroes =
             hp: 308,
             maxHp: 310,
             energy: 0,
+            energyRegen: 5,
             maxEnergy: 48,
             damage: 22,
             heal: 10,
