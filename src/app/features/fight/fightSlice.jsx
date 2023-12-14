@@ -1,19 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    heroes: [
-        { name: "John", hp: 100, hpMax: 100, mana: 30, manaMax: 30, id: 1, alrdyPlayed: false },
-        { name: "Jack", hp: 100, hpMax: 100, mana: 30, manaMax: 30, id: 2, alrdyPlayed: false },
-        { name: "Jessy", hp: 100, hpMax: 100, mana: 30, manaMax: 30, id: 3, alrdyPlayed: false },
-        { name: "Jenny", hp: 100, hpMax: 100, mana: 30, manaMax: 30, id: 4, alrdyPlayed: false }
-    ],
-    enemy: {
-        id: 1,
-        name: 'samsung',
-        hp: 800,
-        hpMax: 800,
-    },
+    heroes: null,
+    enemy: null,
     round: 0,
+    status: 'fighting'
 }
 
 
@@ -87,10 +78,25 @@ export const fightSlice = createSlice({
         setEnemyAndHeroes: (state, action) => {
             state.heroes = action.payload.heroes
             state.enemy = action.payload.enemy
-            console.log(state.heroes, state.enemy)
-        }
+        },
+        setEnemyHp: (state, action) => {
+            state.enemy.hp = action.payload.value
+        },
+        setEnemyFloatingText: (state, action) => {
+            state.enemy.tookDamage = action.payload.value
+        },
+        setHeroHp: (state, action) => {
+            state.heroes[action.payload.heroIndex].hp = action.payload.value
+        },
+        setHeroEnergy: (state, action) => {
+            state.heroes[action.payload.heroIndex].energy = action.payload.value
+        },
+        setHeroStatus: (state, action) => {
+            state.heroes[action.payload.heroIndex].status = action.payload.value
+        },
+
     },
 })
 
-export const { heroTurn, enemyTurn, setEnemyAndHeroes } = fightSlice.actions
+export const { setHeroHp, setHeroEnergy, setHeroStatus, setEnemyHp, setEnemyFloatingText } = fightSlice.actions
 export default fightSlice.reducer

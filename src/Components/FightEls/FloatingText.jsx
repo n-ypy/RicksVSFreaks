@@ -29,7 +29,7 @@ export default function FloatingText({ type, minusPlus, value, isEnemy }) {
     return (
         <>
             <div
-                className={"lost-gain " + type + "-" + minusPlus + isEnemy ? "enemy-lost-gain" : ""}
+                className={"floating-text " + type + "-" + minusPlus + isEnemy ? "enemy-floating-text" : ""}
             >
                 {symbol} {value} {icon}
             </div>

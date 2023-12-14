@@ -4,12 +4,13 @@ const heroes =
             name: 'BethClone',
             displayName: 'Beth Clone',
             role: 'Fighter',
-            hp: 265,
+            hp: 262,
             maxHp: 262,
             energy: 0,
             maxEnergy: 43,
             damage: 18,
             heal: 12,
+            status: 'alive',
             activeAbility: {
                 energyCost: 25,
                 description: 'Deals 57 damage.',
@@ -28,6 +29,7 @@ const heroes =
             maxEnergy: 55,
             damage: 11,
             heal: 19,
+            status: 'alive',
             activeAbility: {
                 energyCost: 27,
                 description: 'Halves enemy damage for one turn.',
@@ -46,6 +48,7 @@ const heroes =
             maxEnergy: 120,
             damage: 9,
             heal: 23,
+            status: 'alive',
             activeAbility: {
                 energyCost: 120,
                 description: 'Revives teammate at 50% health.',
@@ -64,6 +67,7 @@ const heroes =
             maxEnergy: 60,
             damage: 10,
             heal: 10,
+            status: 'alive',
             activeAbility: {
                 energyCost: 50,
                 description: 'Grants 10 energy to everyone.',
@@ -82,6 +86,7 @@ const heroes =
             maxEnergy: 66,
             damage: 10,
             heal: 17,
+            status: 'alive',
             activeAbility: {
                 energyCost: 33,
                 description: '30% damage shield to allies for two turns.',
@@ -100,6 +105,7 @@ const heroes =
             maxEnergy: 40,
             damage: 8,
             heal: 22,
+            status: 'alive',
             activeAbility: {
                 energyCost: 35,
                 description: 'Heals everyone for 70 health.',
@@ -118,6 +124,7 @@ const heroes =
             maxEnergy: 50,
             damage: 20,
             heal: 10,
+            status: 'alive',
             activeAbility: {
                 energyCost: 30,
                 description: 'Inflicts 60 damage.',
@@ -136,6 +143,7 @@ const heroes =
             maxEnergy: 48,
             damage: 22,
             heal: 10,
+            status: 'alive',
             activeAbility: {
                 energyCost: 30,
                 description: 'Boosts damage by 50% and blocks 20% for 2 turns.',

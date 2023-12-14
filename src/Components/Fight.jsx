@@ -1,72 +1,53 @@
-import { useSelector } from "react-redux";
+import "../styles/Animations.css";
 import "../styles/Fight.css";
-import Progress from "./FightEls/Progress";
-import RoundIndicator from "./FightEls/RoundIndicator";
 import "../styles/Fog.css"
+import RoundIndicator from "./FightEls/RoundIndicator";
 import Fog from "./FightEls/Fog";
 import HeroCard from "./FightEls/HeroCard";
-import "../styles/Animations.css";
-import { useEffect, useState } from "react";
 import Abilities from "./FightEls/Abilities";
-import * as Icon from "./Icons"
+import Enemy from "./FightEls/Enemy";
+import Hero from "./FightEls/Hero";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 export default function Fight() {
     const enemy = useSelector((state) => state.fight.enemy)
     const heroes = useSelector((state) => state.fight.heroes)
+    const fightStatus = useSelector((state) => state.fight.status)
     const [selectedHero, setSelectedHero] = useState(null)
 
     useEffect(() => {
 
-    })
+        return () => {}
+    },[fightStatus])
 
     const toggleHeroSelect = function (hero) {
+        if(hero.status !== 'alive'){
+            return
+        }
+
         if (!selectedHero || selectedHero.name !== hero.name) {
             setSelectedHero(hero)
             return
         }
+
         setSelectedHero(null)
         return
     }
 
     return (
         <>
-            <div className="fight-page">
+            <div className={"fight-page" + (fightStatus !== "fighting" && " fight-page-fight-end")}>
                 <div className="battlefield">
                     <Fog />
                     <RoundIndicator />
-                    <div className="enemy-hp-bar-container">
-                        <Progress min={enemy.hp} max={enemy.maxHp} type={'health'} />
-                    </div>
-                    <div className="entity-pic enemy-pic boss-took-dmg">
-                        <img src={'/public/images/enemy/down/' + enemy.name + '_1.png'} alt={enemy.name} />
-                    </div>
+                    <Enemy enemy={enemy} />
                     <div className="entity-pic heroes-pic">
-                        {/* {heroes.map((hero, index) => <img className={selectedHero && selectedHero.name === hero.name ? 'move-hero-' + index : ''} key={hero.name + '_1.png'} src={'/public/images/hero/up/' + hero.name + '_1.png'} alt={hero.name} />)} */}
-                        {heroes.map((hero, index) => (
-                            <div
-                                className={selectedHero && selectedHero.name === hero.name ? 'hero-pic move-hero-' + index : 'hero-pic move-back-' + index}
-                                key={hero.name + '_1.png'}
-                                style={{
-                                    "--hero-pic": `url("/public/images/hero/up/${hero.name}_1.png")`,
-                                    "--selected-hero-up-1": `url("/public/images/hero/up/${hero.name}_1.png")`,
-                                    "--selected-hero-up-2": `url("/public/images/hero/up/${hero.name}_2.png")`,
-                                    "--selected-hero-up-3": `url("/public/images/hero/up/${hero.name}_3.png")`,
-                                    "--selected-hero-down-1": `url("/public/images/hero/down/${hero.name}_1.png")`,
-                                    "--selected-hero-down-2": `url("/public/images/hero/down/${hero.name}_2.png")`,
-                                    "--selected-hero-down-3": `url("/public/images/hero/down/${hero.name}_3.png")`,
-                                    "--selected-hero-side-1": `url("/public/images/hero/side/${hero.name}_1.png")`,
-                                    "--selected-hero-side-2": `url("/public/images/hero/side/${hero.name}_2.png")`,
-                                    "--selected-hero-side-3": `url("/public/images/hero/side/${hero.name}_3.png")`,
-                                }}
-                            >
-
-                            </div>)
-                        )}
+                        {heroes.map((hero, index) => <Hero selectedHero={selectedHero} hero={hero} index={index} />)}
                     </div>
                 </div>
-
                 <div className="spell-bar">
-                    {selectedHero && <Abilities />}
+                    {selectedHero && <Abilities hero={selectedHero} />}
                 </div>
                 <div className="heroes-row">
                     {heroes.map(hero => <HeroCard key={hero.name} hero={hero} toggleHeroSelect={toggleHeroSelect} />)}
