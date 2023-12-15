@@ -65,8 +65,20 @@ const heroes =
             status: 'alive',
             floatingText: null,
             activeAbility: {
-                energyCost: 120,
+                energyCost: 100,
                 description: 'Revives teammate at 50% health.',
+                action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
+                    let i = 0;
+                    heroes.forEach(hero => {
+                        if (i === 0 && hero.status === 'dead') {
+                            i++
+                            const healthAfterHeal = Math.floor(hero.maxHp / 2)
+                            dispatch(FightSliceActions.setHeroHp({ heroId: hero.id, value: healthAfterHeal }))
+                            dispatch(FightSliceActions.setHeroStatus({ heroId: hero.id, value: 'alive' }))
+                            dispatch(FightSliceActions.setHeroFloatingText({ heroId: hero.id, value: { type: 'health', minusPlus: 'plus', value: healthAfterHeal } }))
+                        }
+                    })
+                }
             },
             passiveAbility: {
                 description: 'Boosts team\'s healing by 10%.'

@@ -52,7 +52,7 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
         </div>
         <div className={"entity-pic enemy-pic" + (enemyTookDamage ? " enemy-took-dmg" : "")}>
             {floatingTextEl}
-            <img src={'/images/enemy/down/' + enemy.name + '_1.png'} alt={enemy.name} />
+            <img src={'/public/images/enemy/down/' + enemy.name + '_1.png'} alt={enemy.name} />
         </div>
     </>)
 }

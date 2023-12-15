@@ -5,13 +5,14 @@ import { setHeroStatus } from "../../app/features/fight/fightSlice"
 
 export default function Hero({ selectedHero, hero, index }) {
 
-    const [floatingTextEl, setFloatingTextEl] = useState(null)
+    const [floatingTextEl, setFloatingTextEl] = useState()
     const dispatch = useDispatch()
 
     useEffect(() => {
         if (hero.floatingText === null) {
             return
         }
+
         setFloatingTextEl(<FloatingText key={Math.random()} type={hero.floatingText.type} minusPlus={hero.floatingText.minusPlus} value={hero.floatingText.value} isEnemy={false} />)
     }, [hero.floatingText])
 
@@ -19,12 +20,12 @@ export default function Hero({ selectedHero, hero, index }) {
         if (hero.hp <= 0) {
             dispatch(setHeroStatus({ heroId: hero.id, value: 'dead' }))
         }
-    },[hero.hp])
+    }, [hero.hp])
 
     return (
         <>
             <div
-                className={(selectedHero && selectedHero.name === hero.name ? 'hero-pic move-hero-' + index : 'hero-pic move-back-' + index) + (hero.status === 'dead' ? ' grayscale-one' : '')}
+                className={(selectedHero && selectedHero.name === hero.name ? 'hero-pic move-hero-' + index : 'hero-pic move-back-' + index) + (hero.status === 'dead' ? ' hero-dead' : '')}
                 key={hero.name + '_1.png'}
                 style={{
                     "--hero-pic": `url("/public/images/hero/up/${hero.name}_1.png")`,

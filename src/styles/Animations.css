@@ -678,10 +678,13 @@
         left: 52%;
     }
 
-    100% {
+    99.9% {
         top: 0;
         left: 50%;
         opacity: 0;
+    }
+    100% {
+        display: none;
     }
 }
 
