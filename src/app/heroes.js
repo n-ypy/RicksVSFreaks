@@ -15,10 +15,10 @@ const heroes =
             status: 'alive',
             floatingText: null,
             activeAbility: {
-                energyCost: 5,
+                energyCost: 30,
                 description: 'Deals 57 damage.',
                 action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
-                    const enemyHpAfterHit = Math.max(0, enemyHp - hero.damage)
+                    const enemyHpAfterHit = Math.max(0, enemyHp - 57)
                     dispatch(FightSliceActions.setEnemyHp({ value: enemyHpAfterHit }))
                     const effectiveDamage = enemyHp - enemyHpAfterHit
                     dispatch(FightSliceActions.setEnemyFloatingText({ value: { type: 'health', minusPlus: 'minus', value: effectiveDamage } }))
@@ -87,7 +87,7 @@ const heroes =
             status: 'alive',
             floatingText: null,
             activeAbility: {
-                energyCost: 5,
+                energyCost: 45,
                 description: 'Grants 10 energy to everyone.',
                 action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
                     heroes.forEach(hero => {
@@ -143,7 +143,7 @@ const heroes =
             status: 'alive',
             floatingText: null,
             activeAbility: {
-                energyCost: 5,
+                energyCost: 33,
                 description: 'Heals everyone for 70 health.',
                 action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
                     heroes.forEach(hero => {
@@ -178,10 +178,10 @@ const heroes =
             status: 'alive',
             floatingText: null,
             activeAbility: {
-                energyCost: 5,
+                energyCost: 28,
                 description: 'Inflicts 60 damage.',
                 action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
-                    const enemyHpAfterHit = Math.max(0, enemyHp - hero.damage)
+                    const enemyHpAfterHit = Math.max(0, enemyHp - 60)
                     dispatch(FightSliceActions.setEnemyHp({ value: enemyHpAfterHit }))
                     const effectiveDamage = enemyHp - enemyHpAfterHit
                     dispatch(FightSliceActions.setEnemyFloatingText({ value: { type: 'health', minusPlus: 'minus', value: effectiveDamage } }))
@@ -196,7 +196,7 @@ const heroes =
             name: 'PickleRick',
             displayName: 'Pickle Rick',
             role: 'Fighter',
-            hp: 308,
+            hp: 310,
             maxHp: 310,
             energy: 0,
             energyRegen: 5,

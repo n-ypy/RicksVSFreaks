@@ -1,20 +1,30 @@
-import { EnergyIcon, HealthIcon } from "../Icons"
+import { CooldownIcon, DeadIcon, EnergyIcon, HealthIcon } from "../Icons"
 import Progress from "./Progress"
 
-export default function HeroCard({ hero, toggleHeroSelect }) {
+
+export default function HeroCard({ hero, toggleHeroSelect, isSelected }) {
+
+
     return (
         <>
-            <div className="hero-card" onClick={() => toggleHeroSelect(hero)}>
-                <div className="hero-img-bar-wrapper">
-                    <img src={"/public/images/hero/front/" + hero.name + ".png"} alt={hero.name} />
+            <div className={"hero-card" + ((hero.status === "dead") ? ' grayscale-one' : '') + (isSelected ? ' selected-hero-card' : '')} onClick={() => toggleHeroSelect(hero)}>
+                <div className="hero-img-container-wrapper">
+                    <div className={"hero-img-container" + ((hero.status === "played") ? ' grayscale-one' : '')}>
+                        <img src={"/public/images/hero/front/" + hero.name + ".png"} alt={hero.name} />
+                    </div>
+                </div>
+                <div className="hero-card-name-status-container">
+                    {hero.status === "played" ? <CooldownIcon /> : ''}
+                    {hero.status === "dead" ? <DeadIcon /> : ''}
+                    <div className="hero-card-name">{hero.name}</div>
                 </div>
                 <div className="hero-hp-bar-wrapper">
                     <Progress min={hero.hp} max={hero.maxHp} type={'health'} />
-                    <HealthIcon />
+                    {/* <HealthIcon className={'hp-icon'} /> */}
                 </div>
                 <div className="hero-energy-bar-wrapper">
                     <Progress min={hero.energy} max={hero.maxEnergy} type={'energy'} />
-                    <EnergyIcon />
+                    {/* <EnergyIcon className={'energy-icon'} /> */}
                 </div>
             </div>
         </>

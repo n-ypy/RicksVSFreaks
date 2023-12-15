@@ -85,20 +85,34 @@ export default function Fight() {
     return (
         <>
             {(fightStatus !== "fighting") && <FightEndScreen fightStatus={fightStatus} />}
-            <div className={"fight-page" + (fightStatus !== "fighting" && " fight-page-fight-end")}>
+            <div className={"fight-page" + (fightStatus !== "fighting" && " grayscale-one")}>
                 <div className="battlefield">
                     <Fog />
                     <RoundIndicator />
                     <Enemy enemy={enemy} canAttack={enemyCanAttack} setCanAttack={setEnemyCanAttack} />
                     <div className="entity-pic heroes-pic">
-                        {heroes.map((hero, index) => <Hero key={hero.id} selectedHero={selectedHero} hero={hero} index={index} />)}
+                        {heroes.map((hero, index) => (
+                            <Hero
+                                key={hero.id}
+                                selectedHero={selectedHero}
+                                hero={hero}
+                                index={index}
+                            />
+                        ))}
                     </div>
                 </div>
-                <div className="spell-bar">
+                <div className="ability-bar">
                     {selectedHero && <Abilities hero={selectedHero} toggleHeroSelect={toggleHeroSelect} />}
                 </div>
                 <div className="heroes-row">
-                    {heroes.map(hero => <HeroCard key={hero.name} hero={hero} toggleHeroSelect={toggleHeroSelect} />)}
+                    {heroes.map(hero => (
+                        <HeroCard
+                            key={hero.name}
+                            hero={hero}
+                            toggleHeroSelect={toggleHeroSelect}
+                            isSelected={selectedHero && (selectedHero.name === hero.name)}
+                        />
+                    ))}
                 </div>
             </div>
         </>

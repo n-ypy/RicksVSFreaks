@@ -3,7 +3,7 @@ const enemies =
         {
             name: "BethsMytholog",
             displayName: "Beth's Mytholog",
-            hp: 60,
+            hp: 1600,
             maxHp: 1600,
             damage: 55,
             floatingText: null,
@@ -11,7 +11,7 @@ const enemies =
         {
             name: "FortuneQueen",
             displayName: "Fortune Queen",
-            hp: 800,
+            hp: 2200,
             maxHp: 2200,
             damage: 55,
             floatingText: null,
@@ -19,7 +19,7 @@ const enemies =
         {
             name: "Snowball",
             displayName: "Snowball",
-            hp: 750,
+            hp: 3400,
             maxHp: 3400,
             damage: 55,
             floatingText: null,

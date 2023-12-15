@@ -24,7 +24,7 @@ export default function Hero({ selectedHero, hero, index }) {
     return (
         <>
             <div
-                className={selectedHero && selectedHero.name === hero.name ? 'hero-pic move-hero-' + index : 'hero-pic move-back-' + index}
+                className={(selectedHero && selectedHero.name === hero.name ? 'hero-pic move-hero-' + index : 'hero-pic move-back-' + index) + (hero.status === 'dead' ? ' grayscale-one' : '')}
                 key={hero.name + '_1.png'}
                 style={{
                     "--hero-pic": `url("/public/images/hero/up/${hero.name}_1.png")`,

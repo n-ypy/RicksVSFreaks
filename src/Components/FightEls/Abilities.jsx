@@ -54,9 +54,9 @@ export default function Abilities({ hero, toggleHeroSelect }) {
 
     return (
         <>
-            <button className="spell-bar-btn attack-btn" onClick={() => heroAttack()}>ATTACK &nbsp;{hero.damage} <DamageIcon /></button>
-            <button className="spell-bar-btn heal-btn" onClick={() => heroHeal()} disabled={(hero.hp >= hero.maxHp)}>HEAL &nbsp;{hero.heal} <HealIcon /></button>
-            <button className="spell-bar-btn ability-btn" onClick={() => useActiveAbility()} disabled={(!canUseAbility())}>ABILITY &nbsp;-{hero.activeAbility.energyCost} <EnergyIcon /></button>
+            <button className="ability-bar-btn attack-btn" onClick={() => heroAttack()}>ATTACK &nbsp;{hero.damage} <DamageIcon /></button>
+            <button className="ability-bar-btn heal-btn" onClick={() => heroHeal()} disabled={(hero.hp >= hero.maxHp)}>HEAL &nbsp;{hero.heal} <HealIcon /></button>
+            <button className="ability-bar-btn ability-btn" onClick={() => useActiveAbility()} disabled={(!canUseAbility())}>ABILITY &nbsp;-{hero.activeAbility.energyCost} <EnergyIcon /></button>
         </>
     )
 }
