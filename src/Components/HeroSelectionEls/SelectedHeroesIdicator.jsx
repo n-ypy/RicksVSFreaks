@@ -1,5 +1,3 @@
-import { useId } from "react"
-
 export default function SelectedHeroesIndicator({ selectedHeroes }) {
 
     return (
