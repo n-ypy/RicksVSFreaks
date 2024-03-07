@@ -4,8 +4,8 @@ export default function FightEndScreen({ fightStatus }) {
     return (
         <>
             <div className="fight-status-screen">
-                {(fightStatus === 'defeat') && <img src="/public/images/defeat.png" />}
-                {(fightStatus === 'victory') && <img src="/public/images/victory.png" />}
+                {(fightStatus === 'defeat') && <img src="/src/assets/images/defeat.png" />}
+                {(fightStatus === 'victory') && <img src="/src/assets/images/victory.png" />}
                 <div className="fight-status-text"> {upperCaseStatus}</div>
             </div>
         </>

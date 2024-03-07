@@ -73,7 +73,7 @@ export default function HeroSelectionCards({ hero, toggleHeroSelect}) {
                         </div>
                     </div>
                 </div>
-                <img src={'/public/images/hero/front/' + hero.name + '.png'} alt={hero.displayName} />
+                <img src={'/src/assets/images/hero/front/' + hero.name + '.png'} alt={hero.displayName} />
             </div>
         </>
     )

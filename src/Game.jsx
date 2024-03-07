@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import HeroSelection from './Components/HeroSelection';
-import './styles/Game.css';
+import './assets/styles/Game.css';
 import Fight from './Components/Fight';
-import './styles/StarBackground.css'
+import './assets/styles/StarBackground.css'
 
 export default function Game() {
 

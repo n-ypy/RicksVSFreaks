@@ -1,4 +1,4 @@
-import '../styles/HeroSelection.css'
+import '../assets/styles/HeroSelection.css'
 import heroes from '../app/heroes'
 import enemies from '../app/enemies'
 import HeroSelectionCard from './HeroSelectionEls/HeroSlectionCard'
@@ -7,7 +7,7 @@ import SelectedHeroesIndicator from './HeroSelectionEls/SelectedHeroesIdicator'
 import StartFightBtn from './HeroSelectionEls/StartFightBtn'
 import EnemyCard from './HeroSelectionEls/EnemySelection'
 import { useDispatch } from 'react-redux';
-import { setEnemyAndHeroes } from '/src/app/features/fight/fightSlice'
+import { setEnemyAndHeroes } from '../app/features/fight/fightSlice'
 
 
 export default function HeroSelection({ setIsFightInitiated }) {

@@ -1,6 +1,6 @@
-import "../styles/Animations.css";
-import "../styles/Fight.css";
-import "../styles/Fog.css"
+import "../assets/styles/Animations.css";
+import "../assets/styles/Fight.css";
+import "../assets/styles/Fog.css"
 import RoundIndicator from "./FightEls/RoundIndicator";
 import Fog from "./FightEls/Fog";
 import HeroCard from "./FightEls/HeroCard";

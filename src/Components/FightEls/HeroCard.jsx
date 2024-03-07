@@ -10,7 +10,7 @@ export default function HeroCard({ hero, toggleHeroSelect, isSelected }) {
             <div className={"hero-card" + ((hero.status === "dead") ? ' grayscale-one' : '') + (isSelected ? ' selected-hero-card' : '')} onClick={() => toggleHeroSelect(hero)}>
                 <div className="hero-img-container-wrapper">
                     <div className={"hero-img-container" + ((hero.status === "played") ? ' grayscale-one' : '')}>
-                        <img src={"/public/images/hero/front/" + hero.name + ".png"} alt={hero.name} />
+                        <img src={"/src/assets/images/hero/front/" + hero.name + ".png"} alt={hero.name} />
                     </div>
                 </div>
                 <div className="hero-card-name-status-container">
