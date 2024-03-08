@@ -3,6 +3,7 @@ import Progress from "./Progress"
 import FloatingText from "./FloatingText"
 import { useSelector, useDispatch } from 'react-redux'
 import { setHeroEnergy, setHeroFloatingText, setHeroHp } from "../../app/features/fight/fightSlice"
+import getImageUrl from "../../utils/getImageUrl.js"
 
 export default function Enemy({ enemy, canAttack, setCanAttack }) {
 
@@ -52,7 +53,7 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
         </div>
         <div className={"entity-pic enemy-pic" + (enemyTookDamage ? " enemy-took-dmg" : "")}>
             {floatingTextEl}
-            <img src={'/src/assets/images/enemy/down/' + enemy.name + '_1.png'} alt={enemy.name} />
+            <img src={getImageUrl("enemy/down/" + enemy.name + "_1.png")} alt={enemy.name} />
         </div>
     </>)
 }

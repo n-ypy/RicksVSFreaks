@@ -1,5 +1,6 @@
 import { CooldownIcon, DeadIcon, EnergyIcon, HealthIcon } from "../Icons"
 import Progress from "./Progress"
+import getImageUrl from "../../utils/getImageUrl.js"
 
 
 export default function HeroCard({ hero, toggleHeroSelect, isSelected }) {
@@ -10,7 +11,8 @@ export default function HeroCard({ hero, toggleHeroSelect, isSelected }) {
             <div className={"hero-card" + ((hero.status === "dead") ? ' grayscale-one' : '') + (isSelected ? ' selected-hero-card' : '')} onClick={() => toggleHeroSelect(hero)}>
                 <div className="hero-img-container-wrapper">
                     <div className={"hero-img-container" + ((hero.status === "played") ? ' grayscale-one' : '')}>
-                        <img src={"/src/assets/images/hero/front/" + hero.name + ".png"} alt={hero.name} />
+                        
+                        <img src={getImageUrl("hero/front/" + hero.name + ".png")} alt={hero.name} />
                     </div>
                 </div>
                 <div className="hero-card-name-status-container">

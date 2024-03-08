@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState } from "react"
 import { useEffect } from "react"
 import * as Icons from '../Icons'
+import getImageUrl from "../../utils/getImageUrl.js"
 
 export default function HeroSelectionCards({ hero, toggleHeroSelect}) {
 
@@ -73,7 +74,7 @@ export default function HeroSelectionCards({ hero, toggleHeroSelect}) {
                         </div>
                     </div>
                 </div>
-                <img src={'/src/assets/images/hero/front/' + hero.name + '.png'} alt={hero.displayName} />
+                <img src={getImageUrl("hero/front/" + hero.name + ".png")} />
             </div>
         </>
     )
