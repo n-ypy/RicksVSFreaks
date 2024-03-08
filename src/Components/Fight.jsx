@@ -53,7 +53,6 @@ export default function Fight() {
 
     useEffect(() => {
         let enemyCanPlay = true
-
         heroes.forEach(hero => {
             if (hero.status === 'alive') {
                 enemyCanPlay = false

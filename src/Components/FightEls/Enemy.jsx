@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Progress from "./Progress"
 import FloatingText from "./FloatingText"
 import { useSelector, useDispatch } from 'react-redux'
-import { setHeroEnergy, setHeroFloatingText, setHeroHp } from "../../app/features/fight/fightSlice"
+import { setHeroEnergy, setHeroFloatingText, setHeroHp, setHeroStatus } from "../../app/features/fight/fightSlice"
 import getImageUrl from "../../utils/getImageUrl.js"
 
 export default function Enemy({ enemy, canAttack, setCanAttack }) {
