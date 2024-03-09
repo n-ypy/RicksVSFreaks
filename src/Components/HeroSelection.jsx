@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { setEnemyAndHeroes } from '../app/features/fight/fightSlice'
 
 
-export default function HeroSelection({ setIsFightInitiated }) {
+export default function HeroSelection({ setIsFightInitiated, children }) {
     const [animationTrigger, setAnimationTrigger] = useState(false)
     const [selectedHeroes, setSelectedHeroes] = useState([null, null, null, null])
     const [selectedEnemy, setSelectedEnemy] = useState(enemies[0])
@@ -51,6 +51,7 @@ export default function HeroSelection({ setIsFightInitiated }) {
     return (
         <>
             <div className='hero-selection-page'>
+                {children}
                 <div className={`title-container${animationTrigger ? ' move-title' : ''}`}>
                     <div className='title'>Ricks<span>vs</span>Freaks</div>
                     <div className='title middle'> Ricks<span>vs</span>Freaks</div>

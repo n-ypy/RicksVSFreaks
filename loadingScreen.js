@@ -16,10 +16,10 @@ bodyEl.insertAdjacentElement("afterbegin", loadingScreen)
 const portalEl = document.querySelector('.loading-screen-portal')
 
 function bubbleAnimationEffect() {
-    portalEl.style.borderTopLeftRadius = Math.round(Math.random() * 200 + 350) + 'px'
-    portalEl.style.borderTopRightRadius = Math.round(Math.random() * 200 + 350) + 'px'
-    portalEl.style.borderBottomLeftRadius = Math.round(Math.random() * 200 + 350) + 'px'
-    portalEl.style.borderBottomRightRadius = Math.round(Math.random() * 200 + 350) + 'px'
+    portalEl.style.borderTopLeftRadius = Math.round(Math.random() * 21.5 + 37.5) + 'svh'
+    portalEl.style.borderTopRightRadius = Math.round(Math.random() * 21.5 + 37.5) + 'svh'
+    portalEl.style.borderBottomLeftRadius = Math.round(Math.random() * 21.5 + 37.5) + 'svh'
+    portalEl.style.borderBottomRightRadius = Math.round(Math.random() * 21.5 + 37.5) + 'svh'
 }
 
 portalEl.style.transition = '1s'

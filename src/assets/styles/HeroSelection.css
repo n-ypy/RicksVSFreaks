@@ -1,6 +1,10 @@
 .hero-selection-page {
     height: 100svh;
     width: 100%;
+    max-width: calc(100svh * 2.5);
+    overflow: hidden;
+    background-color: black;
+    box-shadow: 0 0 50px 30px black;
 }
 
 .title-container {
@@ -111,6 +115,7 @@
     margin: 2svh 1%;
     box-sizing: border-box;
     cursor: pointer;
+    z-index: 1;
 }
 
 .hero-selection-card img {
@@ -140,6 +145,7 @@
     z-index: 5;
     overflow: hidden;
     color: black;
+    max-width: calc(10.5svh*2.5);
 }
 
 .hero-selection-card:hover .hero-selection-btn {
@@ -298,7 +304,6 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .enemy-overview-card {
@@ -395,7 +400,7 @@
     translate: -50% -50%;
     width: 100%;
     text-align: center;
-    z-index: -1;
+    z-index: 0;
 }
 
 .vs-title-container .title {
@@ -423,7 +428,7 @@
 .start-fight-btn {
     all: unset;
     position: fixed;
-    top: 100%;
+    top: 98%;
     left: 50%;
     translate: -50% -105%;
     text-align: center;

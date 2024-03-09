@@ -8,6 +8,14 @@ body {
     all: unset;
     overflow: hidden;
     background-color: black;
+    -webkit-tap-highlight-color: transparent;
+    background-image: url('images/background.png');
+}
+
+#root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .loading-screen-container {
