@@ -15,7 +15,7 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
 
     const attackRandomHero = function () {
         
-        const hero = heroes[Math.floor(Math.random() * 3)]
+        const hero = heroes[Math.floor(Math.random() * 4)]
         if(hero.status === 'dead'){
             attackRandomHero()
             return

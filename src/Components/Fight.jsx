@@ -79,7 +79,7 @@ export default function Fight() {
             }
         })
         dispatch(setNextRound())
-    }, [heroes])
+    }, [heroes[0].status, heroes[1].status, heroes[2].status, heroes[3].status])
 
     return (
         <>
