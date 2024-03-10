@@ -4,6 +4,7 @@ import FloatingText from "./FloatingText"
 import { useSelector, useDispatch } from 'react-redux'
 import { setHeroEnergy, setHeroFloatingText, setHeroHp, setHeroStatus } from "../../app/features/fight/fightSlice"
 import getImageUrl from "../../utils/getImageUrl.js"
+import { HealthIcon } from "../Icons.jsx"
 
 export default function Enemy({ enemy, canAttack, setCanAttack }) {
 
@@ -49,6 +50,7 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
 
     return (<>
         <div className="enemy-hp-bar-container">
+            <HealthIcon className={'hp-icon'} />
             <Progress min={enemy.hp} max={enemy.maxHp} type={'health'} />
         </div>
         <div className={"entity-pic enemy-pic" + (enemyTookDamage ? " enemy-took-dmg" : "")}>
