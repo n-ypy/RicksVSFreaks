@@ -307,8 +307,7 @@
 }
 
 .enemy-overview-card {
-    height: 83svh;
-    max-height: calc(40svw + 19svh);
+    height: 91.3svh;
     display: flex;
     flex-direction: column-reverse;
     align-items: end;
@@ -319,7 +318,8 @@
 .enemy-overview-card img {
     object-fit: contain;
     max-width: 100%;
-    max-height: 110%;
+    min-height: 65%;
+    max-height: 100%;
     animation: translate-enemy-card .3s linear;
 }
 
@@ -372,7 +372,7 @@
 }
 
 .enemy-title {
-    margin-bottom: -13svh;
+    margin-bottom: -21.3svh;
 }
 
 .enemy-select .selected-enemy {

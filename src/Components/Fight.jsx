@@ -84,7 +84,7 @@ export default function Fight() {
     return (
         <>
             {(fightStatus !== "fighting") && <FightEndScreen fightStatus={fightStatus} />}
-            <div className={"fight-page" + (fightStatus !== "fighting" && " grayscale-one")}>
+            <div className={"fight-page" + (fightStatus !== "fighting" ? " grayscale-one" : "")}>
                 <div className="battlefield">
                     <Fog />
                     <RoundIndicator />
