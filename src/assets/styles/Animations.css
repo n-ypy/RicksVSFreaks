@@ -579,21 +579,26 @@
     justify-content: center;
     align-items: center;
     font-family: 'Dosis', sans-serif;
-    font-size: 20px;
+    font-size: 2.35svh;
     font-weight: 800;
-    text-shadow: 0px 0px 3px black;
+    text-shadow: 0px 0px 0.4svh black;
     width: 100%;
-    max-width: 200px;
     animation: floating-text 1.5s linear forwards;
+    max-width: 25svh;
 }
 
 .enemy-floating-text{
-    font-size: 30px;
+    font-size: 3.5svh;
+}
+
+.enemy-floating-text svg{
+    height: 3.5svh;
 }
 
 .floating-text svg {
-    margin-left: .2em;
-    height: 1em;
+    margin-left: 0.25svh;
+    height: 2.35svh;
+    filter: drop-shadow(0 0.4svh 0.4svh rgb(0, 0, 0));
 }
 
 .health-minus {
