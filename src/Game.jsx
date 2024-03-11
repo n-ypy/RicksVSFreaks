@@ -22,7 +22,12 @@ export default function Game() {
     }, [])
 
     return (<>
-        {isFightInitiated ? <Fight /> :
+        {isFightInitiated ?
+            <Fight>
+                <div id='stars'></div>
+                <div id='stars2'></div>
+                <div id='stars3'></div>
+            </Fight> :
             <HeroSelection setIsFightInitiated={setIsFightInitiated}>
                 <div id='stars'></div>
                 <div id='stars2'></div>

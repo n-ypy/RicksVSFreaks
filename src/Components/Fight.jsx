@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { setFightStatus, setHeroStatus, setHeroEnergy, setHeroFloatingText, setNextRound } from "../app/features/fight/fightSlice";
 import FightEndScreen from "./FightEls/FightEndScreen";
 
-export default function Fight() {
+export default function Fight({ children }) {
     const enemy = useSelector((state) => state.fight.enemy)
     const heroes = useSelector((state) => state.fight.heroes)
     const fightStatus = useSelector((state) => state.fight.status)
@@ -85,6 +85,7 @@ export default function Fight() {
         <>
             {(fightStatus !== "fighting") && <FightEndScreen fightStatus={fightStatus} />}
             <div className={"fight-page" + (fightStatus !== "fighting" ? " grayscale-one" : "")}>
+                {children}
                 <div className="battlefield">
                     <Fog />
                     <RoundIndicator />
@@ -101,7 +102,11 @@ export default function Fight() {
                     </div>
                 </div>
                 <div className="ability-bar">
-                    {selectedHero && <Abilities hero={selectedHero} toggleHeroSelect={toggleHeroSelect} />}
+                    <div className="ability-bar-separator"></div>
+                    <div className="ability-btns-wrapper">
+                        {selectedHero && <Abilities hero={selectedHero} toggleHeroSelect={toggleHeroSelect} />}
+                    </div>
+                    <div className="ability-bar-separator"></div>
                 </div>
                 <div className="heroes-row">
                     {heroes.map(hero => (
