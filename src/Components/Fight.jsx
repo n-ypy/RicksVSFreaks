@@ -65,20 +65,22 @@ export default function Fight({ children }) {
             return
         }
 
-        setEnemyCanAttack(true)
+        setTimeout(() => {
+            setEnemyCanAttack(true)
 
-        heroes.forEach(hero => {
-            if (hero.status === 'played') {
-                dispatch(setHeroStatus({ heroId: hero.id, value: "alive" }))
-                const energyAfterEnergyRestore = Math.min(hero.maxEnergy, hero.energy + hero.energyRegen)
-                if (energyAfterEnergyRestore > hero.energy) {
-                    dispatch(setHeroEnergy({ heroId: hero.id, value: energyAfterEnergyRestore }))
-                    const energyRestored = energyAfterEnergyRestore - hero.energy
-                    dispatch(setHeroFloatingText({ heroId: hero.id, value: { type: 'energy', minusPlus: 'plus', value: energyRestored } }))
+            heroes.forEach(hero => {
+                if (hero.status === 'played') {
+                    dispatch(setHeroStatus({ heroId: hero.id, value: "alive" }))
+                    const energyAfterEnergyRestore = Math.min(hero.maxEnergy, hero.energy + hero.energyRegen)
+                    if (energyAfterEnergyRestore > hero.energy) {
+                        dispatch(setHeroEnergy({ heroId: hero.id, value: energyAfterEnergyRestore }))
+                        const energyRestored = energyAfterEnergyRestore - hero.energy
+                        dispatch(setHeroFloatingText({ heroId: hero.id, value: { type: 'energy', minusPlus: 'plus', value: energyRestored } }))
+                    }
                 }
-            }
-        })
-        dispatch(setNextRound())
+            })
+            dispatch(setNextRound())
+        }, 550)
     }, [heroes[0].status, heroes[1].status, heroes[2].status, heroes[3].status])
 
     return (

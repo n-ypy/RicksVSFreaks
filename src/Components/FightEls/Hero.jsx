@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import FloatingText from "./FloatingText"
 import { setHeroStatus } from "../../app/features/fight/fightSlice"
 import getImageUrl from "../../utils/getImageUrl.js"
 
 export default function Hero({ selectedHero, hero, index }) {
 
-    const [floatingTextEl, setFloatingTextEl] = useState()
+    const [floatingTextQueue, setFloatingTextQueue] = useState([])
+    const [heroTookDamage, setHeroTookDamage] = useState(false)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -14,7 +15,20 @@ export default function Hero({ selectedHero, hero, index }) {
             return
         }
 
-        setFloatingTextEl(<FloatingText key={Math.random()} type={hero.floatingText.type} minusPlus={hero.floatingText.minusPlus} value={hero.floatingText.value} isEnemy={false} />)
+        if (hero.floatingText.minusPlus === 'minus' && hero.floatingText.type === 'health') {
+            setHeroTookDamage(true)
+            setTimeout(() => {
+                setHeroTookDamage(false)
+            }, 300)
+        }
+
+        setFloatingTextQueue(prevQueue => [...prevQueue, {
+            key: Math.random(),
+            type: hero.floatingText.type,
+            minusPlus: hero.floatingText.minusPlus,
+            value: hero.floatingText.value,
+            isEnemy: false
+        }])
     }, [hero.floatingText])
 
     useEffect(() => {
@@ -23,10 +37,17 @@ export default function Hero({ selectedHero, hero, index }) {
         }
     }, [hero.hp])
 
+    const removeFloatingText = () => {
+        setFloatingTextQueue(prevQueue => {
+            const [, ...newQueue] = prevQueue
+            return newQueue
+        })
+    }
+
     return (
         <>
             <div
-                className={(selectedHero && selectedHero.name === hero.name ? 'hero-pic move-hero-' + index : 'hero-pic move-back-' + index) + (hero.status === 'dead' ? ' hero-dead' : '')}
+                className={(selectedHero && selectedHero.name === hero.name ? 'hero-pic move-hero-' + index : 'hero-pic move-back-' + index) + (hero.status === 'dead' ? ' hero-dead' : '') + (heroTookDamage ? " hero-took-dmg" : "")}
                 key={hero.name + '_1.png'}
                 style={{
                     "--hero-pic": `url("${getImageUrl("hero/up/" + hero.name + "_1.png")}")`,
@@ -41,7 +62,16 @@ export default function Hero({ selectedHero, hero, index }) {
                     "--hero-side-3": `url("${getImageUrl("hero/side/" + hero.name + "_3.png")}")`,
                 }}
             >
-                {floatingTextEl}
+                {floatingTextQueue.map((floatingText, index) => (
+                    <FloatingText
+                        key={floatingText.key}
+                        type={floatingText.type}
+                        minusPlus={floatingText.minusPlus}
+                        value={floatingText.value}
+                        isEnemy={floatingText.isEnemy}
+                        onAnimationEnd={index === 0 ? removeFloatingText : null}
+                    />
+                ))}
             </div>
         </>
     )

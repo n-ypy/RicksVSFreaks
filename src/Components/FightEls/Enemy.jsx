@@ -15,9 +15,9 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
     const dispatch = useDispatch()
 
     const attackRandomHero = function () {
-        
+
         const hero = heroes[Math.floor(Math.random() * 4)]
-        if(hero.status === 'dead'){
+        if (hero.status === 'dead') {
             attackRandomHero()
             return
         }
@@ -41,7 +41,7 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
     }, [floatingText])
 
     useEffect(() => {
-        if(canAttack) {
+        if (canAttack) {
             setCanAttack(false)
             attackRandomHero()
         }
@@ -55,7 +55,7 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
         </div>
         <div className={"entity-pic enemy-pic" + (enemyTookDamage ? " enemy-took-dmg" : "")}>
             {floatingTextEl}
-            <img src={getImageUrl("enemy/down/" + enemy.name + "_1.png")} alt={enemy.name} />
+            <img src={enemyTookDamage ? getImageUrl("enemy/down/" + enemy.name + "_2.png") : getImageUrl("enemy/down/" + enemy.name + "_1.png")} alt={enemy.name} />
         </div>
     </>)
 }

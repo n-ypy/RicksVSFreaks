@@ -2,6 +2,7 @@ const images = [
     'bg.png',
     'defeat.png',
     'victory.png',
+    'background.png',
     'enemy/down/BethsMytholog_1.png',
     'enemy/down/BethsMytholog_2.png',
     'enemy/down/BethsMytholog_3.png',

@@ -569,6 +569,11 @@
     }
 }
 
+.floating-text:nth-child(2) {
+    top: 38%;
+    animation: floating-text 1.5s linear 0.5s forwards;
+}
+
 .floating-text {
     position: absolute;
     top: 50%;
@@ -689,6 +694,9 @@
         opacity: 0;
     }
     100% {
+        top: 0;
+        left: 50%;
+        opacity: 0;
         display: none;
     }
 }
@@ -722,3 +730,22 @@
       background-position: 0% 50%;
     }
   }
+
+  @keyframes hero-death {
+    0% {
+        rotate: z 0deg;
+        translate: 0 0;
+        filter: grayscale(0);
+    }
+
+    80% {
+        rotate: z 0deg;
+        translate: 0 0;
+    }
+
+    100% {
+        rotate: z -90deg;
+        translate: 0 20%;
+        filter: grayscale(1);
+    }
+}
