@@ -380,3 +380,9 @@
     translate: 0 20%;
     transition: all .2s ease-in;
 }
+
+@media screen and (max-aspect-ratio: 1.99) {
+    .battlefield{
+        background-size: unset;
+    }
+}
