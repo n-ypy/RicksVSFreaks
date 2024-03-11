@@ -3,6 +3,9 @@
     width: 100%;
     font-family: 'Dosis', sans-serif;
     background-color: black;
+    max-width: calc(100svh * 2.5);
+    overflow: hidden;
+    box-shadow: 0 0 50px 30px black;
 }
 
 .round-indicator-container {
@@ -145,8 +148,8 @@
     font-weight: 800;
     height: 80%;
     min-width: 175px;
-    margin: 0 17px;
-    border-radius: 5px;
+    margin: 0 1.75svh;
+    border-radius: 0.5svh;
     cursor: pointer;
     display: flex;
     flex-direction: row;
