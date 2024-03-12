@@ -37,13 +37,6 @@ export default function Hero({ selectedHero, hero, index }) {
         }
     }, [hero.hp])
 
-    const removeFloatingText = () => {
-        setFloatingTextQueue(prevQueue => {
-            const [, ...newQueue] = prevQueue
-            return newQueue
-        })
-    }
-
     return (
         <>
             <div
@@ -69,7 +62,6 @@ export default function Hero({ selectedHero, hero, index }) {
                         minusPlus={floatingText.minusPlus}
                         value={floatingText.value}
                         isEnemy={floatingText.isEnemy}
-                        onAnimationEnd={index === 0 ? removeFloatingText : null}
                     />
                 ))}
             </div>

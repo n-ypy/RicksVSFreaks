@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Progress from "./Progress"
 import FloatingText from "./FloatingText"
 import { useSelector, useDispatch } from 'react-redux'
-import { setHeroEnergy, setHeroFloatingText, setHeroHp, setHeroStatus } from "../../app/features/fight/fightSlice"
+import { setHeroEnergy, setHeroFloatingText, setHeroHp, setHeroStatus, setNextRound } from "../../app/features/fight/fightSlice"
 import getImageUrl from "../../utils/getImageUrl.js"
 import { HealthIcon } from "../Icons.jsx"
 
@@ -12,6 +12,7 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
     const heroes = useSelector(state => state.fight.heroes)
     const [floatingTextEl, setFloatingTextEl] = useState(null)
     const [enemyTookDamage, setEnemyTookDamage] = useState(false)
+    const [enemyAttacking, setEnemyAttacking] = useState(false)
     const dispatch = useDispatch()
 
     const attackRandomHero = function () {
@@ -42,8 +43,14 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
 
     useEffect(() => {
         if (canAttack) {
+            console.log('enemyCanAttack')
             setCanAttack(false)
             attackRandomHero()
+            setEnemyAttacking(true)
+            dispatch(setNextRound())
+            setTimeout(() => {
+                setEnemyAttacking(false)
+            }, 333)
         }
     }, [canAttack])
 
@@ -55,7 +62,7 @@ export default function Enemy({ enemy, canAttack, setCanAttack }) {
         </div>
         <div className={"entity-pic enemy-pic" + (enemyTookDamage ? " enemy-took-dmg" : "")}>
             {floatingTextEl}
-            <img src={enemyTookDamage ? getImageUrl("enemy/down/" + enemy.name + "_2.png") : getImageUrl("enemy/down/" + enemy.name + "_1.png")} alt={enemy.name} />
+            <img src={enemyTookDamage ? getImageUrl("enemy/down/" + enemy.name + "_2.png") : (enemyAttacking ? getImageUrl("enemy/down/" + enemy.name + "_3.png") : getImageUrl("enemy/down/" + enemy.name + "_1.png"))} alt={enemy.name} />
         </div>
     </>)
 }

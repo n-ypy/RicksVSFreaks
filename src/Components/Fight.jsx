@@ -16,6 +16,7 @@ export default function Fight({ children }) {
     const enemy = useSelector((state) => state.fight.enemy)
     const heroes = useSelector((state) => state.fight.heroes)
     const fightStatus = useSelector((state) => state.fight.status)
+    const fightRound = useSelector((state) => state.fight.round)
     const [selectedHero, setSelectedHero] = useState(null)
     const [enemyCanAttack, setEnemyCanAttack] = useState(false)
     const dispatch = useDispatch()
@@ -67,21 +68,27 @@ export default function Fight({ children }) {
 
         setTimeout(() => {
             setEnemyCanAttack(true)
-
-            heroes.forEach(hero => {
-                if (hero.status === 'played') {
-                    dispatch(setHeroStatus({ heroId: hero.id, value: "alive" }))
-                    const energyAfterEnergyRestore = Math.min(hero.maxEnergy, hero.energy + hero.energyRegen)
-                    if (energyAfterEnergyRestore > hero.energy) {
-                        dispatch(setHeroEnergy({ heroId: hero.id, value: energyAfterEnergyRestore }))
-                        const energyRestored = energyAfterEnergyRestore - hero.energy
-                        dispatch(setHeroFloatingText({ heroId: hero.id, value: { type: 'energy', minusPlus: 'plus', value: energyRestored } }))
-                    }
-                }
-            })
-            dispatch(setNextRound())
         }, 550)
+
     }, [heroes[0].status, heroes[1].status, heroes[2].status, heroes[3].status])
+
+    useEffect(() => {
+        if (fightRound === 0) {
+            return
+        }
+
+        heroes.forEach(hero => {
+            if (hero.status === 'played' && hero.hp > 0) {
+                dispatch(setHeroStatus({ heroId: hero.id, value: "alive" }))
+                const energyAfterEnergyRestore = Math.min(hero.maxEnergy, hero.energy + hero.energyRegen)
+                if (energyAfterEnergyRestore > hero.energy) {
+                    dispatch(setHeroEnergy({ heroId: hero.id, value: energyAfterEnergyRestore }))
+                    const energyRestored = energyAfterEnergyRestore - hero.energy
+                    dispatch(setHeroFloatingText({ heroId: hero.id, value: { type: 'energy', minusPlus: 'plus', value: energyRestored } }))
+                }
+            }
+        })
+    }, [fightRound])
 
     return (
         <>
