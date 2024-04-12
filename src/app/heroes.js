@@ -45,6 +45,12 @@ const heroes =
             activeAbility: {
                 energyCost: 27,
                 description: 'Halves enemy damage for one turn.',
+                action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
+                    const enemyHpAfterHit = Math.max(0, enemyHp - 60)
+                    dispatch(FightSliceActions.setEnemyHp({ value: enemyHpAfterHit }))
+                    const effectiveDamage = enemyHp - enemyHpAfterHit
+                    dispatch(FightSliceActions.setEnemyFloatingText({ value: { type: 'health', minusPlus: 'minus', value: effectiveDamage } }))
+                }
             },
             passiveAbility: {
                 description: 'Increases team damage by 5%.'
@@ -135,6 +141,12 @@ const heroes =
             activeAbility: {
                 energyCost: 33,
                 description: '30% damage shield to allies for two turns.',
+                action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
+                    const enemyHpAfterHit = Math.max(0, enemyHp - 60)
+                    dispatch(FightSliceActions.setEnemyHp({ value: enemyHpAfterHit }))
+                    const effectiveDamage = enemyHp - enemyHpAfterHit
+                    dispatch(FightSliceActions.setEnemyFloatingText({ value: { type: 'health', minusPlus: 'minus', value: effectiveDamage } }))
+                }
             },
             passiveAbility: {
                 description: 'Grants 2 extra energy to allies with 15% possibility per action.'
@@ -220,6 +232,12 @@ const heroes =
             activeAbility: {
                 energyCost: 30,
                 description: 'Boosts damage by 50% and blocks 20% for 2 turns.',
+                action: (heroes, dispatch, FightSliceActions, enemyHp, hero) => {
+                    const enemyHpAfterHit = Math.max(0, enemyHp - 60)
+                    dispatch(FightSliceActions.setEnemyHp({ value: enemyHpAfterHit }))
+                    const effectiveDamage = enemyHp - enemyHpAfterHit
+                    dispatch(FightSliceActions.setEnemyFloatingText({ value: { type: 'health', minusPlus: 'minus', value: effectiveDamage } }))
+                }
             },
             passiveAbility: {
                 description: '25% probability of counterattack when hit.'
