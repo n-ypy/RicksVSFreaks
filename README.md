@@ -1,10 +1,10 @@
-# Ricks VS Freaks
+# Ricks VS Freaks 🦸‍♂️🆚👾
 
 Ricks VS Freaks is a turn-based fighting game developed with React and Redux. In this game, players control a team of four heroes in a battle against a powerful boss. Each hero possesses unique active and passive abilities, as well as healing and attacking capabilities.
 
 ![RicksVsFreaks-preview](https://github.com/n-ypy/ReadMeAssetsVault/blob/main/RicksVsFreaks/main.gif?raw=true)
 
-## Install
+## Install 🛠️
 
 To run Ricks VS Freaks locally, follow these steps:
 
